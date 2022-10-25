@@ -15,6 +15,7 @@ import { TaskProvider } from './Context/TaskContext'
 import { SelectedProjectProvider } from './Context/SelectedProjectContext'
 import { TimerProvider } from './Context/TimerContext'
 import { SelectedTaskProvider } from './Context/SelectedTaskContext'
+import Toggle from './Pages/Toggle'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/projects',
-        element: <Projects />
+        element: <Toggle />
       },
       {
         path: '/tasks',

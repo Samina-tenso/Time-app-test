@@ -21,13 +21,13 @@ export default function ProjectList() {
         getProjects()
         console.log(initialState)
         window.localStorage.clear()
-        dispatchSelected({
-            type: "RESET_SELECTED_PROJECT",
-            payload: {
-                projectId: null,
-                projectTitle: null
-            }
-        })
+        // dispatchSelected({
+        //     type: "RESET_SELECTED_PROJECT",
+        //     payload: {
+        //         projectId: null,
+        //         projectTitle: null
+        //     }
+        // })
         console.log(stateSelected)
         console.log("newn")
 
