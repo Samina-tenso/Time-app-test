@@ -237,7 +237,7 @@
       "title": "ner",
       "projectId": "7d57d2ce-cfb7-4c3b-90e6-c3743e6703ca",
       "projectTitle": "funn ",
-      "time": 3
+      "time": 4
     },
     {
       "uuid": "54f8793d-be85-4d47-b6fd-4e1374f4d181",
@@ -269,7 +269,7 @@
       "title": "newt",
       "projectId": "7d57d2ce-cfb7-4c3b-90e6-c3743e6703ca",
       "projectTitle": "funn ",
-      "time": 3
+      "time": 9
     },
     {
       "uuid": "LekTstp"
@@ -288,6 +288,12 @@
     {
       "time": 2,
       "uuid": "aa694d30-8979-4529-ac09-c486d00a902c"
+    },
+    {
+      "uuid": "6958cc53-aec6-4dae-bf98-8a9f802d181e",
+      "title": "horse2",
+      "projectId": "7d57d2ce-cfb7-4c3b-90e6-c3743e6703ca",
+      "projectTitle": "funn "
     }
   ]
 }

@@ -17,12 +17,14 @@ function Timer() {
         if (!stateTimer.isRunning) {
             return
         }
+        console.log(stateTimer.time)
         timerRef.current = setInterval(() => dispatchTimer({ type: 'TICK' }), 1000)
         return () => {
             clearInterval(timerRef.current)
             timerRef.current = 0
+
         }
-        console.log(stateTimer.time)
+
     }, [stateTimer.isRunning])
 
 
@@ -42,7 +44,9 @@ function Timer() {
         } catch (error) {
             console.log(error.message)
         }
-
+        dispatchTimer({
+            type: 'RESET_TIME'
+        })
     }
 
     return (

@@ -50,9 +50,12 @@ function TaskList() {
             <ul>
                 {
                     stateTask.task.map(task => {
-                        return <div onClick={() => handleSelected(task.uuid, task.title)} className="flex text-blue-500 block bg-blue-200 border-black border-2 hover:text-blue-800" >
+                        return <><div onClick={() => handleSelected(task.uuid, task.title)} className="flex text-blue-500 block bg-blue-200 border-black border-2 hover:text-blue-800" >
                             <li key={task.uuid} className="inline-block flex-wrap"> {task.title}</li>
-                            <button onClick={() => handleDelete(task.uuid)}>Delete </button></div>
+                            <button onClick={() => handleDelete(task.uuid)}>Delete </button>
+                            <p> {task.time}</p></div>
+
+                        </>
                     })
                 }
             </ul>
