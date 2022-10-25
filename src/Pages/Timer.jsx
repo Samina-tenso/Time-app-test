@@ -10,26 +10,27 @@ function Timer() {
     const { stateSelectedTask, dispatchSelectedTask } = useContext(SelectedTaskContext)
     const { stateTimer, dispatchTimer } = useContext(TimerContext)
     const timerRef = useRef(0)
-    const [count, setCount] = useState(0)
+
     const { addTime } = useAddTime()
     useEffect(() => {
         console.log("rerendered")
-        if (!stateTimer.timer.isRunning) {
+        if (!stateTimer.isRunning) {
             return
         }
-        timerRef.current = setInterval(() => setCount(time => time + 1), 1000)
+        timerRef.current = setInterval(() => dispatchTimer({ type: 'TICK' }), 1000)
         return () => {
             clearInterval(timerRef.current)
             timerRef.current = 0
         }
-
-    }, [stateTimer.timer.time])
+        console.log(stateTimer.time)
+    }, [stateTimer.isRunning])
 
 
 
 
 
     const handleSave = async (e) => {
+        let count = stateTimer.time
         e.preventDefault()
         try {
             if (stateSelectedTask.selectedTask.uuid) {
@@ -46,10 +47,10 @@ function Timer() {
 
     return (
         <>
-            {stateSelectedTask.selectedTask ?
+            {stateSelectedTask.selectedTask.title ?
                 (
                     <div className='bg-slate-900'>
-                        <h1>{stateTimer.timer.time}</h1>
+                        <h1>{stateTimer.time}</h1>
                         <h2>task:{stateSelectedTask.selectedTask ? (stateSelectedTask.selectedTask.title) : null}</h2>
                         <button onClick={handleSave}> <BookmarkIcon className="w-4"></BookmarkIcon></button>
                         <button onClick={() => dispatchTimer({ type: 'START' })}> <PlayIcon className="w-4"></PlayIcon></button>
