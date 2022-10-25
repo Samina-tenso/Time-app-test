@@ -12,7 +12,8 @@ function NewTask() {
         title: '',
         uuid: '',
         projectId: stateSelected.selected.projectId,
-        projectTitle: stateSelected.selected.projectTitle
+        projectTitle: stateSelected.selected.projectTitle,
+        time: ''
     })
 
     const handleChange = (e) => {
@@ -28,7 +29,7 @@ function NewTask() {
     }
     return (
         <Form className=''>
-            <input type='text' placeholder='task name' value={task.title} onChange={(e) => handleChange(e)} required />
+            <input type='text' placeholder='task name' className="text-black" value={task.title} onChange={(e) => handleChange(e)} required />
             <button type="submit" onClick={handleSubmit}>Add Task</button>
         </Form>
     )

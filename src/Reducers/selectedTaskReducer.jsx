@@ -14,15 +14,15 @@ export const selectedTaskReducer = (stateSelectedTask, action) => {
 
     switch (action.type) {
         case "SELECTED_TASK":
-            let selectedTask = {
+            let currentTask = {
                 ...stateSelectedTask,
                 selectedTask: action.payload
             };
-            return selectedTask
-        case "RESET_SELECTED":
+            return currentTask
+        case "RESET_SELECTED_TASK":
             let resetSelected = {
                 ...stateSelectedTask,
-                selectedTask: action.payload
+                selectedTask: initialState
             };
             return resetSelected
         default: return stateSelectedTask

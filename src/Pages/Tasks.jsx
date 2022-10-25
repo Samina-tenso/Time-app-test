@@ -13,7 +13,7 @@ import Timer from './Timer'
 
 function Tasks() {
 
-    const { stateSelected, dispatchSelectd } = useContext(SelectedProjectContext)
+    const { stateSelected, dispatchSelected } = useContext(SelectedProjectContext)
 
 
     console.log(stateSelected.selected.projectTitle)

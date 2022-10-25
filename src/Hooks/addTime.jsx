@@ -2,43 +2,37 @@ import React from 'react'
 import { TaskContext } from "../Context/TaskContext"
 import { useContext, useState } from "react"
 import axios from "axios"
-import { v4 as uuidv4 } from 'uuid'
 
-
-
-export const useAddTask = () => {
+export const useAddTime = () => {
     const [error, setError] = useState(null)
     const { stateTask, dispatchTask } = useContext(TaskContext)
+
     // post med dispatch
-    async function addTask({ title, projectId, projectTitle }) {
-        console.log(projectId, title)
+    async function addTime(count, selectedId) {
+        console.log(count, selectedId)
         setError(null)
         try {
-            const response = await axios.post("http://localhost:3000/tasks", {
-                uuid: uuidv4(),
-                title: title,
-                projectId: projectId,
-                projectTitle: projectTitle,
-
-
+            const response = await axios.patch(`http://localhost:3000/tasks/${selectedId}`, {
+                time: count
             })
+
             dispatchTask({
-                type: "ADD_TASK",
+                type: "ADD_TIME",
                 payload: {
                     uuid: response.data.uuid,
                     title: response.data.title,
                     projectId: response.data.projectId,
                     projectTitle: response.data.projectTitle,
+                    time: response.data.time,
 
                 }
             })
-            console.log(response.data.title)
+            console.log(response.data)
             return
         } catch (error) {
-            console.log(error)
+            console.log(error.message)
         }
-
     }
-    return { addTask, error }
+    return { addTime, error }
 }
 

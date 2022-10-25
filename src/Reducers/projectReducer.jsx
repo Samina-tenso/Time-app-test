@@ -29,12 +29,12 @@ export const projectReducer = (state, action) => {
             return filteredState
 
 
-        case "SELECTED_PROJECT":
-            let selectedState = {
-                ...state,
-                projects: [...state.projects, action.payload]
+            // case "SELECTED_PROJECT":
+            //     let selectedState = {
+            //         ...state,
+            //         projects: [...state.projects, action.payload]
 
-            }
+            //     }
 
             return selectedState
 

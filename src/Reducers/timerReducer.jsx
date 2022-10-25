@@ -9,8 +9,9 @@ export const initialState = {
 
 export const timerReducer = (stateTimer, action) => {
     switch (action.type) {
-        case 'STOP':
-            return { ...stateTimer, isRunning: true }
+        case 'START':
+
+            return { ...stateTimer, timer: [stateTimer.timer.isRunning, true] }
         case 'STOP':
             return { ...stateTimer, isRunning: false }
         case 'RESET':

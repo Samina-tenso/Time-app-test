@@ -15,27 +15,38 @@ export default function ProjectList() {
     const { stateSelected, dispatchSelected } = useContext(SelectedProjectContext)
     const { stateSelectedTask, initialState, dispatchSelectedTask } = useContext(SelectedTaskContext)
     const { getProjects } = useGetProjects()
+    // const [selectedId, setSelectedId ] = useState()
+
     useEffect(() => {
-        console.log("hello")
         getProjects()
-        dispatchSelectedTask({
-            type: "RESET_SELECTED",
-            payload: initialState,
-
-        })
-    }, [])
-
-
-
-    const handleSelected = (id, title) => {
-        console.log(id)
+        console.log(initialState)
+        window.localStorage.clear()
         dispatchSelected({
-            type: "SELECTED_PROJECT",
+            type: "RESET_SELECTED_PROJECT",
             payload: {
-                projectId: id,
-                projectTitle: title
+                projectId: null,
+                projectTitle: null
             }
         })
+        console.log(stateSelected)
+        console.log("newn")
+
+    }, [])
+
+    const handleSelected = (id, title) => {
+        try {
+            console.log(id)
+            dispatchSelected({
+                type: "SELECTED_PROJECT",
+                payload: {
+                    projectId: id,
+                    projectTitle: title
+                }
+            })
+            console.log(stateSelected)
+        } catch (error) {
+            console.log(error.message)
+        }
 
     }
 

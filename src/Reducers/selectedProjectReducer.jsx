@@ -14,7 +14,15 @@ export const selectedProjectReducer = (stateSelected, action) => {
                 ...stateSelected,
                 selected: action.payload
             }
+            console.log(selectedProject)
             return selectedProject
+        case "RESET_SELECTED_PROJECT":
+            let resetSelectedProject = {
+                ...stateSelected,
+                selected: action.payload
+            }
+            return resetSelectedProject
+
         default: return stateSelected
     }
 
