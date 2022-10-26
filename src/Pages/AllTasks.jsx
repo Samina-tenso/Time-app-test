@@ -1,5 +1,5 @@
 import React from 'react'
-import useGetAllTasks from '../Hooks/getAllTasks'
+import { useGetAllTasks } from '../Hooks/getAllTasks'
 import { TaskContext } from "../Context/TaskContext";
 function AllTasks() {
     const { stateTask, dispatchTask } = useContext(TaskContext)

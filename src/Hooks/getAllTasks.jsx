@@ -2,7 +2,7 @@ import axios from "axios"
 import { TaskContext } from "../Context/TaskContext"
 import { useContext, useState } from "react"
 
-export const useGetAllTask = () => {
+export const useGetAllTasks = () => {
     const { stateTask, dispatchTask } = useContext(TaskContext)
     async function getAllTasks() {
         try {

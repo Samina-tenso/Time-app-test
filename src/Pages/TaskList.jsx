@@ -16,7 +16,7 @@ function TaskList() {
     const { stateSelectedTask, dispatchSelectedTask } = useContext(SelectedTaskContext)
 
     useEffect(() => {
-        window.localStorage.setItem("project", JSON.stringify(stateSelected.selected.projectId))
+
     }, [stateSelected])
 
     useEffect(() => {
@@ -24,7 +24,7 @@ function TaskList() {
             type: "RESET_SELECTED_TASK",
         })
         console.log(stateSelectedTask)
-        let selectedId = JSON.parse(localStorage.getItem("project"))
+
         getTasks(selectedId)
         console.log(stateSelected.selected.projectId)
     }, [])
