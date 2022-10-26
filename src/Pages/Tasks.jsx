@@ -13,15 +13,12 @@ import Timer from './Timer'
 
 function Tasks() {
 
-    const { stateSelected, dispatchSelected } = useContext(SelectedProjectContext)
 
-
-    console.log(stateSelected.selected.projectTitle)
 
     return (
-        <div className='text-slate-50'>
+        <div className=' text-slate-50 '>
             <div>Tasks</div>
-            <h1> Project: {stateSelected.selected.projectTitle}</h1>
+            <h1> Project: </h1>
 
             <Timer />
             <NewTask />

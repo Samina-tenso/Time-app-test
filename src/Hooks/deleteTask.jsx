@@ -11,15 +11,21 @@ export const useDeleteTask = () => {
         setError(null)
         try {
             const response = await axios.delete(`http://localhost:3000/tasks/${id}`)
-            console.log(response.data)
-            dispatchTask({
-                type: "DELETED_TASK",
-                payload: {
-                    uuid: response.data.uuid,
-                }
-            })
-            console.log(response.data.uuid)
-            return
+            if (response.status == 200) {
+                console.log(response.data)
+                dispatchTask({
+                    type: "DELETED_TASK",
+                    payload: {
+                        uuid: response.data.uuid,
+                    }
+                })
+
+                console.log(response.data.uuid)
+                return
+            } else {
+                console.log(error.message)
+            }
+
         } catch (error) {
             console.log(error.message)
         }

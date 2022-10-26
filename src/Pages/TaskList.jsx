@@ -7,26 +7,35 @@ import { useGetTasks } from '../Hooks/getTasks';
 import { SelectedProjectContext } from '../Context/SelectedProjectContext';
 import { SelectedTaskContext } from '../Context/SelectedTaskContext';
 import { initialState } from '../Reducers/projectReducer';
+import { useParams } from "react-router-dom"
+import { useGetProjects } from '../Hooks/getProjects';
+import { ProjectContext } from "../Context/ProjectContext"
+
+
 
 function TaskList() {
+    const { state, dispatch } = useContext(ProjectContext)
     const { stateTask, dispatchTask } = useContext(TaskContext)
     const { deleteTask, error } = useDeleteTask()
     const { getTasks } = useGetTasks()
     const { stateSelected, dispatchSelected } = useContext(SelectedProjectContext)
     const { stateSelectedTask, dispatchSelectedTask } = useContext(SelectedTaskContext)
+    const { id } = useParams()
 
     useEffect(() => {
 
-    }, [stateSelected])
+        let project = state.projects.filter((project) => project.uuid == id)
+        console.log(project)
 
-    useEffect(() => {
+
         dispatchSelectedTask({
             type: "RESET_SELECTED_TASK",
         })
-        console.log(stateSelectedTask)
+        getTasks(id)
 
-        getTasks(selectedId)
-        console.log(stateSelected.selected.projectId)
+
+
+
     }, [])
     console.log(stateTask)
 
@@ -46,10 +55,13 @@ function TaskList() {
         deleteTask(id)
     }
     return (
-        <div className='text-slate-50'>
+        <div className='text-slate-50 '>
+            {/* {project[0].title} */}
+
             <ul>
                 {
                     stateTask.task.map(task => {
+
                         return <><div onClick={() => handleSelected(task.uuid, task.title)} className="flex text-blue-500 block bg-blue-200 border-black border-2 hover:text-blue-800" >
                             <li key={task.uuid} className="inline-block flex-wrap"> {task.title}</li>
                             <button onClick={() => handleDelete(task.uuid)}>Delete </button>

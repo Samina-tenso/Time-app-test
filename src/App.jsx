@@ -29,6 +29,10 @@ const router = createBrowserRouter([
         path: '/tasks',
         element: <Tasks />
       },
+      {
+        path: '/projects/:id',
+        element: <Tasks />
+      },
       //   {
       //     path: '/calender',
       //     element: <Calender />
@@ -40,7 +44,7 @@ const router = createBrowserRouter([
 function App() {
 
   return (
-    <div className="App pb-4 h-full w-full bg-slate-800">
+    <div className="App h-full   bg-slate-800">
       < SelectedProjectProvider>
         <SelectedTaskProvider>
           <TimerProvider>

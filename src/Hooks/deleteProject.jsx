@@ -13,24 +13,23 @@ export const useDeleteProject = () => {
         setError(null)
         try {
             const response = await axios.delete(`http://localhost:3000/projects/${id}`)
-
-            console.log(response.data)
-            dispatch({
-                type: "DELETED_PROJECT",
-                payload: {
-                    uuid: response.data.uuid,
-
-                }
-
-
-            })
             console.log(response.data.uuid)
-            return
+
         } catch (error) {
+            console.log(response.status)
             console.log(error.message)
         }
+        // if (response.status === 200) {
+        //     console.log(response.data)
+        //     dispatch({
+        //         type: "DELETED_PROJECT",
+        //         payload: {
+        //             uuid: response.data.uuid,
+
+        //         }
+        //     })
+        // }
 
     }
     return { deleteProject, error }
 }
-

@@ -7,7 +7,7 @@ export default function Projects() {
         <>
 
             <div className=" space-y-8">
-                <h1 className=" text-slate-50 text-xl">Projects</h1>
+
 
                 <NewProject />
                 <ProjectList />
