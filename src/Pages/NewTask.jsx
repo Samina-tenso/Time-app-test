@@ -1,19 +1,22 @@
 import React from 'react'
-import { Form } from 'react-router-dom'
+import { Form, useParams } from 'react-router-dom'
 import { useState, useContext } from 'react'
 import { SelectedProjectContext } from '../Context/SelectedProjectContext'
 import { useAddTask } from '../Hooks/addTask'
 
+
 function NewTask() {
     const { stateSelected, dispatchSelected } = useContext(SelectedProjectContext)
-
+    const { id } = useParams()
     const { addTask, error } = useAddTask()
     const [task, setTask] = useState({
         title: '',
         uuid: '',
-        projectId: stateSelected.selected.projectId,
+        projectId: id,
         projectTitle: stateSelected.selected.projectTitle,
-        time: ''
+        day: '',
+        time: '',
+
     })
 
     const handleChange = (e) => {

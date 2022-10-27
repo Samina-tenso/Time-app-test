@@ -10,7 +10,7 @@ import './App.css'
 import { ProjectProvider } from './Context/ProjectContext'
 import { Root } from './Routes/Root'
 import Tasks from './Pages/Tasks'
-import Projects from './Pages/Projects'
+import Calender from './Pages/Calender'
 import { TaskProvider } from './Context/TaskContext'
 import { SelectedProjectProvider } from './Context/SelectedProjectContext'
 import { TimerProvider } from './Context/TimerContext'
@@ -33,10 +33,10 @@ const router = createBrowserRouter([
         path: '/projects/:id',
         element: <Tasks />
       },
-      //   {
-      //     path: '/calender',
-      //     element: <Calender />
-      //   }
+      {
+        path: '/calender',
+        element: <Calender />
+      }
     ]
   }
 ])

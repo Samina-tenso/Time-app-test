@@ -20,14 +20,6 @@ export default function ProjectList() {
     useEffect(() => {
 
         console.log(initialState)
-        window.localStorage.clear()
-        // dispatchSelected({
-        //     type: "RESET_SELECTED_PROJECT",
-        //     payload: {
-        //         projectId: null,
-        //         projectTitle: null
-        //     }
-        // })
         console.log(stateSelected)
         console.log("newn")
 
@@ -47,7 +39,6 @@ export default function ProjectList() {
         } catch (error) {
             console.log(error.message)
         }
-
     }
 
     const handleDelete = (id) => {
@@ -62,11 +53,11 @@ export default function ProjectList() {
             < ul >
                 {
                     state.projects.map(project => {
-                        return <div className="grid grid-cols-2   p-8   text-slate-50  border-black  hover:bg-slate-600 ">
+                        return <div className="grid grid-cols-2 p-4 space-y-4  bg-slate-800  text-slate-50    hover:bg-slate-600 ">
 
                             <Link to={`${project.uuid}`} className="   active:bg-slate-900" >
-                                <li key={project.uuid} className="inline-block text-2xl text-slate-50 "> {project.title}</li></Link>
-                            <button onClick={() => handleDelete(project.uuid)} className="hover:text-slate-800 hover:bg-slate-50 hover:border  p-2 rounded-full"> <TrashIcon className="w-6 inline " /></button></div>
+                                <li key={project.uuid} className=" text-2xl text-slate-50 "> {project.title}</li></Link>
+                            <button onClick={() => handleDelete(project.uuid)} className=" hover:text-slate-800 hover:bg-slate-50  align-start  rounded-full"> <TrashIcon className="w-6  inline" /></button></div>
                     })
                 }
             </ul >

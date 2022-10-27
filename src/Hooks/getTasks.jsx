@@ -13,7 +13,8 @@ export const useGetTasks = () => {
 
 
     async function getTasks(id) {
-        console.log(id)
+        console.log("now", id)
+
 
         try {
             let response = await axios.get(`http://localhost:3000/tasks?projectId_like=${id}`)
@@ -21,11 +22,7 @@ export const useGetTasks = () => {
                 dispatchTask({
                     type: "FETCH_TASKS", payload: response.data
                 })
-                dispatchSelected({
-                    type: "SELECTED_PROJECT",
-                    payload: id
-                })
-                return
+
 
             }
         } catch (error) {

@@ -3,7 +3,7 @@ import { TaskContext } from "../Context/TaskContext"
 import { useContext, useState } from "react"
 import axios from "axios"
 import { v4 as uuidv4 } from 'uuid'
-
+import { formatISO } from 'date-fns'
 
 
 export const useAddTask = () => {
@@ -19,7 +19,7 @@ export const useAddTask = () => {
                 title: title,
                 projectId: projectId,
                 projectTitle: projectTitle,
-
+                day: formatISO(new Date(), { representation: 'date' })
 
             })
             dispatchTask({
@@ -29,6 +29,7 @@ export const useAddTask = () => {
                     title: response.data.title,
                     projectId: response.data.projectId,
                     projectTitle: response.data.projectTitle,
+                    day: response.data.day
 
                 }
             })

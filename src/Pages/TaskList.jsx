@@ -24,9 +24,7 @@ function TaskList() {
 
     useEffect(() => {
 
-        let project = state.projects.filter((project) => project.uuid == id)
-        console.log(project)
-
+        console.log("rendered")
 
         dispatchSelectedTask({
             type: "RESET_SELECTED_TASK",
@@ -36,7 +34,7 @@ function TaskList() {
 
 
 
-    }, [])
+    }, [id])
     console.log(stateTask)
 
     const handleSelected = (id, title) => {
