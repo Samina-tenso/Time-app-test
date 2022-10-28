@@ -1,12 +1,10 @@
 import React from 'react'
-
-import { ReactDOM } from 'react-dom/client'
 import {
   createBrowserRouter,
   Route,
   RouterProvider,
 } from 'react-router-dom'
-import './App.css'
+import './Styles/app.css'
 import { ProjectProvider } from './Context/ProjectContext'
 import { Root } from './Routes/Root'
 import Tasks from './Pages/Tasks'
@@ -16,6 +14,7 @@ import { SelectedProjectProvider } from './Context/SelectedProjectContext'
 import { TimerProvider } from './Context/TimerContext'
 import { SelectedTaskProvider } from './Context/SelectedTaskContext'
 import Toggle from './Pages/Toggle'
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -44,7 +43,7 @@ const router = createBrowserRouter([
 function App() {
 
   return (
-    <div className="App h-full   bg-slate-800">
+    <div className="App  ">
       < SelectedProjectProvider>
         <SelectedTaskProvider>
           <TimerProvider>

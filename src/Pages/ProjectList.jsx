@@ -9,6 +9,7 @@ import { TrashIcon } from '@heroicons/react/24/outline'
 import { SelectedTaskContext } from '../Context/SelectedTaskContext';
 
 
+
 export default function ProjectList() {
     const { state, dispatch } = useContext(ProjectContext)
     const { deleteProject, error } = useDeleteProject()
@@ -21,9 +22,10 @@ export default function ProjectList() {
 
         console.log(initialState)
         console.log(stateSelected)
+        console.log(state)
         console.log("newn")
 
-    }, [])
+    }, [state])
 
     const handleSelected = (id, title) => {
         try {
@@ -48,16 +50,16 @@ export default function ProjectList() {
 
     console.log(state.projects)
     return (
-        <div  >
+        <div className="container" >
 
             < ul >
                 {
                     state.projects.map(project => {
-                        return <div className="grid grid-cols-2 p-4 space-y-4  bg-slate-800  text-slate-50    hover:bg-slate-600 ">
+                        return <div className="list-container">
 
-                            <Link to={`${project.uuid}`} className="   active:bg-slate-900" >
-                                <li key={project.uuid} className=" text-2xl text-slate-50 "> {project.title}</li></Link>
-                            <button onClick={() => handleDelete(project.uuid)} className=" hover:text-slate-800 hover:bg-slate-50  align-start  rounded-full"> <TrashIcon className="w-6  inline" /></button></div>
+                            <Link to={`${project.id}`} className=" ">
+                                <li key={project.id} className="  "> {project.title}</li></Link>
+                            <button onClick={() => handleDelete(project.id)} className=" "> <TrashIcon className="trash-icon" /></button></div>
                     })
                 }
             </ul >

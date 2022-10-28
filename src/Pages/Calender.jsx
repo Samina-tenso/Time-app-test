@@ -3,10 +3,12 @@ import { TaskContext } from "../Context/TaskContext"
 import { DayPicker } from 'react-day-picker'
 import { format, formatISO } from 'date-fns'
 import { useGetByDate } from '../Hooks/getByDate'
+import 'react-day-picker/dist/style.css';
+import '../Styles/calender.css'
+
 function Calender() {
     const { getByDate } = useGetByDate()
     const { stateTask, dispatchTask } = useContext(TaskContext)
-
     const [selected, setSelected] = React.useState(formatISO(new Date(), { representation: 'date' }));
 
     useEffect(() => {
@@ -23,43 +25,36 @@ function Calender() {
 
     //  Thu Oct 27 2022 18: 07: 04 GMT + 0200(Central European Summer Time)
     let currentDate = formatISO(new Date(selected), { representation: 'date' })
-
     console.log(currentDate)
 
-    let footer = <p>
-        Select date
-    </p>
-    // if (selected) {
-    //     footer = <p> you picke {selected}</p>
-    // }
     return (
-        <>
-            <div>Calender</div>
-            <div className='datePicker'>
+        <div className="container">
+            <span>
+                < h1> Calender</h1 >
                 <DayPicker
-                    styles={{
-                        caption: { color: "red" }
-                    }}
                     mode="single"
                     selected={selected}
                     onSelect={setSelected}
-                    footer={footer}
-                /></div>
-            <div>
+                />
+            </span>
+            <span>
+                <p > You picked {format(new Date(selected), 'PP')}</p>
+            </span>
+            <span>
+
                 <ul>
                     {
                         stateTask.task.map(task => {
                             return <div className="    md:p-0 text-slate-50   ">
 
-                                <p className="" >{task.title}</p>
+                                <h2>{task.title}</h2>
                             </div>
-
                         })
                     }
-
                 </ul>
-            </div>
-        </>
+
+            </span>
+        </div>
     )
 }
 

@@ -1,14 +1,11 @@
 import React from "react";
 import NewProject from "./NewProject";
 import ProjectList from "./ProjectList";
-import Toggle from "./Toggle";
+import '../Styles/projects.css'
 export default function Projects() {
     return (
         <>
-
-            <div className="">
-
-
+            <div className="container">
                 <NewProject />
                 <ProjectList />
             </div>

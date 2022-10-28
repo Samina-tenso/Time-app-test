@@ -12,15 +12,14 @@ export const useAddProject = () => {
         setError(null)
         try {
             const response = await axios.post("http://localhost:3000/projects", {
-                uuid: uuidv4(),
+                id: uuidv4(),
                 title: title
             })
-
 
             dispatch({
                 type: "ADD_PROJECT",
                 payload: {
-                    uuid: response.data.uuid,
+                    id: response.data.id,
                     title: response.data.title
                 }
 

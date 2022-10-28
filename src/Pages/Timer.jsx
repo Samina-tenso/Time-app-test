@@ -5,7 +5,7 @@ import { BookmarkIcon } from '@heroicons/react/24/outline'
 import { SelectedTaskContext } from '../Context/SelectedTaskContext';
 import { useAddTime } from '../Hooks/addTime';
 import { TimerContext } from '../Context/TimerContext';
-
+import '../Styles/timer.css'
 function Timer() {
     const { stateSelectedTask, dispatchSelectedTask } = useContext(SelectedTaskContext)
     const { stateTimer, dispatchTimer } = useContext(TimerContext)
@@ -35,30 +35,31 @@ function Timer() {
         let count = stateTimer.time
         e.preventDefault()
         try {
-            if (stateSelectedTask.selectedTask.uuid) {
-                let selectedId = stateSelectedTask.selectedTask.uuid
+            if (stateSelectedTask.selectedTask.id) {
+                let selectedId = stateSelectedTask.selectedTask.id
                 console.log(count)
                 await addTime(count, selectedId)
             }
-
+            dispatchTimer({
+                type: 'RESET_TIME'
+            })
         } catch (error) {
             console.log(error.message)
         }
-        dispatchTimer({
-            type: 'RESET_TIME'
-        })
+
+
     }
 
     return (
         <>
             {stateSelectedTask.selectedTask.title ?
                 (
-                    <div className='bg-slate-900'>
+                    <div >
                         <h1>{stateTimer.time}</h1>
                         <h2>task:{stateSelectedTask.selectedTask ? (stateSelectedTask.selectedTask.title) : null}</h2>
-                        <button onClick={handleSave}> <BookmarkIcon className="w-4"></BookmarkIcon></button>
-                        <button onClick={() => dispatchTimer({ type: 'START' })}> <PlayIcon className="w-4"></PlayIcon></button>
-                        <button onClick={() => dispatchTimer({ type: 'STOP' })}> <StopIcon className="w-4"></StopIcon></button>
+                        <button onClick={handleSave}> <BookmarkIcon className="save"></BookmarkIcon></button>
+                        <button onClick={() => dispatchTimer({ type: 'START' })}> <PlayIcon className="play"></PlayIcon></button>
+                        <button onClick={() => dispatchTimer({ type: 'STOP' })}> <StopIcon className="stop"></StopIcon></button>
 
                     </div>)
 

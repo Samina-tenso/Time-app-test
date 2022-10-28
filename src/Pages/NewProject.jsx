@@ -22,10 +22,10 @@ function NewProject() {
     }
     return (
 
-        <Form className="">
-            <h2 className="text-sm text-slate-50">Name your new project</h2>
-            <input className=" border p-3 pl-6 text-slate-900 rounded-full" type="text" placeholder="project name" value={title} onChange={(e) => handleChange(e)} required />
-            <button className=" p-6 hover:bg-slate-600 text-slate-50" type="submit" onClick={handleSubmit}>Add Project</button>
+        <Form className="form">
+            <h2>Name your new project</h2>
+            <input type="text" placeholder="project name" value={title} onChange={(e) => handleChange(e)} required />
+            <button type="submit" onClick={handleSubmit}>Add Project</button>
 
         </Form>
     )

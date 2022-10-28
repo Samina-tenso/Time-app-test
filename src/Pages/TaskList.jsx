@@ -41,7 +41,7 @@ function TaskList() {
         dispatchSelectedTask({
             type: "SELECTED_TASK",
             payload: {
-                uuid: id,
+                id: id,
                 title: title
             }
         })
@@ -53,15 +53,15 @@ function TaskList() {
         deleteTask(id)
     }
     return (
-        <div className='text-slate-50 '>
+        <div className="">
             {/* {project[0].title} */}
 
             <ul>
                 {
                     stateTask.task.map(task => {
 
-                        return <><div onClick={() => handleSelected(task.uuid, task.title)} className="flex text-blue-500 block bg-blue-200 border-black border-2 hover:text-blue-800" >
-                            <li key={task.uuid} className="inline-block flex-wrap"> {task.title}</li>
+                        return <><div onClick={() => handleSelected(task.id, task.title)} className="" >
+                            <li key={task.uuid} className=""> {task.title}</li>
                             <button onClick={() => handleDelete(task.uuid)}>Delete </button>
                             <p> {task.time}</p></div>
 

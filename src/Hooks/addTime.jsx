@@ -19,7 +19,7 @@ export const useAddTime = () => {
             dispatchTask({
                 type: "ADD_TIME",
                 payload: {
-                    uuid: response.data.uuid,
+                    id: response.data.id,
                     title: response.data.title,
                     projectId: response.data.projectId,
                     projectTitle: response.data.projectTitle,

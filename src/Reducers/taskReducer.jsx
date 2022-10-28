@@ -19,7 +19,7 @@ export const taskReducer = (stateTask, action) => {
             }
         case "DELETED_TASK":
             let filteredState = {
-                ...stateTask, task: [...stateTask.task].filter((task) => task.uuid !== action.payload.uuid)
+                ...stateTask, task: [...stateTask.task].filter((task) => task.id !== action.payload.id)
             }
             return filteredState
         case "FETCH_TASKS":
@@ -31,7 +31,7 @@ export const taskReducer = (stateTask, action) => {
         case "ADD_TIME":
             let addedtimeState =
             {
-                ...stateTask, task: [...stateTask.task.filter((task) => task.uuid !== action.payload.uuid), action.payload]
+                ...stateTask, task: [...stateTask.task.filter((task) => task.id !== action.payload.id), action.payload]
             }
             return addedtimeState
         default: return stateTask

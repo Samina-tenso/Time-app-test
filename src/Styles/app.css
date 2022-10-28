@@ -1,0 +1,20 @@
+body {
+  text-align: center;
+  background-color: rgb(21, 29, 60);
+  color: whitesmoke;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  font-size: xx-large;
+}
+
+h2 {
+  font-size: larger;
+}
+
+
+button {
+  border: none;
+  padding: 1em;
+}

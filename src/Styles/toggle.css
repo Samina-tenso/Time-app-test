@@ -1,0 +1,15 @@
+.toggle-container {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.toggle-button {
+    background-color: rgb(5, 7, 13);
+    padding: 1em;
+}
+
+.toggle-button:hover {
+    background-color: rgb(51, 62, 92);
+
+}

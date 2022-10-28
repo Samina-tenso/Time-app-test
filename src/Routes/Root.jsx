@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { Outlet } from "react-router-dom"
 import { useContext, useState } from "react"
+import '../Styles/root.css'
 import { SelectedProjectContext } from "../Context/SelectedProjectContext"
 
 
@@ -11,15 +12,15 @@ export function Root() {
 
     console.log(stateSelected.selected, "hoo")
     return (
-        <>
-            <ul className="w-full  bg-slate-50  bottom-0 block fixed inset-x-0 flex  place-content-evenly">
-                <li className={`w-full p-4 hover:text-slate-50 hover:bg-slate-900  ${active == "tasks" ? "bg-slate-50 text-slate-900" : "bg-slate-600"}`} onClick={() => setActive("tasks")}> <Link to={`/projects/${stateSelected.selected}`} href="#">Tasks</Link></li>
-                <li className={`w-full p-4 hover:text-slate-50  hover:bg-slate-900 ${active == "calender" ? "bg-slate-50 text-slate-900" : "bg-slate-600 "}`}> <Link to={`/calender`} href="#">Calender</Link></li>
-                <li className={`w-full p-4 hover:text-slate-50  hover:bg-slate-900 ${active == "projects" ? "bg-slate-50 text-slate-900" : "bg-slate-600 "}`} onClick={() => setActive("projects")}> <Link to={`/projects`} href="#">Projects</Link></li>
+        <div>
+            <ul className="root-container" >
+                <li className=""> <Link to={`/projects/${stateSelected.selected}`} href="#">Tasks</Link></li>
+                <li className=""> <Link to={`/calender`} href="#">Calender</Link></li>
+                <li className=""> <Link to={`/projects`} href="#">Projects</Link></li>
             </ul >
 
             <Outlet />
-        </>
+        </div>
 
     )
 

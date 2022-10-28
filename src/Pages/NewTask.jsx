@@ -31,7 +31,7 @@ function NewTask() {
         await addTask(task)
     }
     return (
-        <Form className=''>
+        <Form className="form">
             <input type='text' placeholder='task name' className="text-black" value={task.title} onChange={(e) => handleChange(e)} required />
             <button type="submit" onClick={handleSubmit}>Add Task</button>
         </Form>

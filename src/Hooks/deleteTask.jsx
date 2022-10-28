@@ -20,7 +20,7 @@ export const useDeleteTask = () => {
                     }
                 })
 
-                console.log(response.data.uuid)
+                return true
                 return
             } else {
                 console.log(error.message)

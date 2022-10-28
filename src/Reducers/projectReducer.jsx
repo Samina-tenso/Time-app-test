@@ -24,7 +24,7 @@ export const projectReducer = (state, action) => {
             return updateState
         case "DELETED_PROJECT":
             let filteredState = {
-                ...state, projects: [...state.projects].filter((project) => project.uuid !== action.payload.uuid)
+                ...state, projects: [...state.projects].filter((project) => project.id !== action.payload.id)
             }
             return filteredState
 

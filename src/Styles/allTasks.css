@@ -1,0 +1,17 @@
+.tasks-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: rgb(0, 0, 0);
+    padding: 2em;
+}
+
+.tasks-container:active {
+    background-color: rgb(51, 62, 92);
+    ;
+}
+
+.tag-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 2em;
+}

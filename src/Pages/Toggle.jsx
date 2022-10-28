@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import '../Styles/toggle.css'
 import Projects from './Projects'
 import AllTasks from './AllTasks'
 function Toggle() {
@@ -15,11 +16,11 @@ function Toggle() {
         setIsOpen(false)
     }
     return (
-        <div className="text-slate-50 text-xl ">
-            <div className='p-4  mb-20'>
-                <button onClick={handleToggle} className={`p-4 ${selected == "projects" ? "bg-slate-600" : "bg-slate-900"}`}> Projects</button>
+        <div >
+            <div className="toggle-container ">
+                <button onClick={handleToggle} className="toggle-button"> Projects</button>
 
-                <button onClick={handleBoggle} className={` p-4 ${selected == "tasks" ? "bg-slate-600" : "bg-slate-900"}`}> All tasks</button>
+                <button onClick={handleBoggle} className="toggle-button"> All tasks</button>
             </div>
             {isOpen ? (<Projects />) : (<AllTasks />)}
 
