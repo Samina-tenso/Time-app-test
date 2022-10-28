@@ -1,5 +1,6 @@
 # Time-app
 #Heroicons -Heroicons var lätta att lägga in i projektet och var lätta att lägga till styling på samt fanns i olika stil för en minimalistisk design.
+# heroicons, tailwind(postcss,autoprefixer), axios, date-fns, uuid,react-day-picker
 
 #Tailwind -Tailwind användes för att det är går snabbt att implementera.
 
