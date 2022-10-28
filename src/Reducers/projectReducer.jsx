@@ -1,4 +1,4 @@
-import React from "react"
+
 
 export const initialState = {
     projects: [{ uuid: '', title: '' }
@@ -7,7 +7,6 @@ export const initialState = {
 }
 
 export const projectReducer = (state, action) => {
-
     switch (action.type) {
         case "ADD_PROJECT":
             return {
@@ -27,20 +26,6 @@ export const projectReducer = (state, action) => {
                 ...state, projects: [...state.projects].filter((project) => project.id !== action.payload.id)
             }
             return filteredState
-
-
-            // case "SELECTED_PROJECT":
-            //     let selectedState = {
-            //         ...state,
-            //         projects: [...state.projects, action.payload]
-
-            //     }
-
-            return selectedState
-
-
-
-
         default: return state
     }
 

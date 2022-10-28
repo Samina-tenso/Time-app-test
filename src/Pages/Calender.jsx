@@ -15,15 +15,7 @@ function Calender() {
         getByDate(currentDate)
         console.log(selected)
     }, [selected])
-    //"Oct 27, 2022"
-    //Oct 26, 2022
 
-    //"2022-10-27T16:19:10.764Z"-task
-    // 2022 - 10 - 27T18: 20: 48 + 02: 00 -calender
-
-    //"2022-10-27T16:05:07.262Z"
-
-    //  Thu Oct 27 2022 18: 07: 04 GMT + 0200(Central European Summer Time)
     let currentDate = formatISO(new Date(selected), { representation: 'date' })
     console.log(currentDate)
 
@@ -41,12 +33,10 @@ function Calender() {
                 <p > You picked {format(new Date(selected), 'PP')}</p>
             </span>
             <span>
-
                 <ul>
                     {
                         stateTask.task.map(task => {
-                            return <div className="    md:p-0 text-slate-50   ">
-
+                            return <div>
                                 <h2>{task.title}</h2>
                             </div>
                         })

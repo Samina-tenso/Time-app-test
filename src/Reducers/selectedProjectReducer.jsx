@@ -25,6 +25,5 @@ export const selectedProjectReducer = (stateSelected, action) => {
 
         default: return stateSelected
     }
-
 }
 export default selectedProjectReducer

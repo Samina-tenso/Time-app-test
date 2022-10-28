@@ -27,36 +27,31 @@ export default function ProjectList() {
 
     }, [state])
 
-    const handleSelected = (id, title) => {
-        try {
-            console.log(id)
-            dispatchSelected({
-                type: "SELECTED_PROJECT",
-                payload: {
-                    projectId: id,
-                    projectTitle: title
-                }
-            })
-            console.log(stateSelected)
-        } catch (error) {
-            console.log(error.message)
-        }
-    }
-
+    // const handleSelected = (id, title) => {
+    //     try {
+    //         console.log(id)
+    //         dispatchSelected({
+    //             type: "SELECTED_PROJECT",
+    //             payload: {
+    //                 projectId: id,
+    //                 projectTitle: title
+    //             }
+    //         })
+    //         console.log(stateSelected)
+    //     } catch (error) {
+    //         console.log(error.message)
+    //     }
+    // }
     const handleDelete = (id) => {
         console.log(id)
         deleteProject(id)
     }
-
-    console.log(state.projects)
     return (
         <div className="container" >
-
             < ul >
                 {
                     state.projects.map(project => {
                         return <div className="list-container">
-
                             <Link to={`${project.id}`} className=" ">
                                 <li key={project.id} className="  "> {project.title}</li></Link>
                             <button onClick={() => handleDelete(project.id)} className=" "> <TrashIcon className="trash-icon" /></button></div>

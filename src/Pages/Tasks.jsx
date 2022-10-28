@@ -5,21 +5,11 @@ import NewTask from './NewTask'
 import TaskList from './TaskList'
 import { useEffect } from 'react'
 import Timer from './Timer'
-
-
-
-
-
-
 function Tasks() {
-
-
-
     return (
-        <div className=' text-slate-50 '>
+        <div>
             <div>Tasks</div>
             <h1> Project: </h1>
-
             <Timer />
             <NewTask />
             <TaskList />

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useContext } from 'react'
+import React, { useRef, useEffect, useContext } from 'react'
 import { PlayIcon } from '@heroicons/react/24/outline'
 import { StopIcon } from '@heroicons/react/24/outline'
 import { BookmarkIcon } from '@heroicons/react/24/outline'
@@ -10,8 +10,8 @@ function Timer() {
     const { stateSelectedTask, dispatchSelectedTask } = useContext(SelectedTaskContext)
     const { stateTimer, dispatchTimer } = useContext(TimerContext)
     const timerRef = useRef(0)
-
     const { addTime } = useAddTime()
+
     useEffect(() => {
         console.log("rerendered")
         if (!stateTimer.isRunning) {
@@ -26,10 +26,6 @@ function Timer() {
         }
 
     }, [stateTimer.isRunning])
-
-
-
-
 
     const handleSave = async (e) => {
         let count = stateTimer.time
@@ -46,8 +42,6 @@ function Timer() {
         } catch (error) {
             console.log(error.message)
         }
-
-
     }
 
     return (
@@ -60,7 +54,6 @@ function Timer() {
                         <button onClick={handleSave}> <BookmarkIcon className="save"></BookmarkIcon></button>
                         <button onClick={() => dispatchTimer({ type: 'START' })}> <PlayIcon className="play"></PlayIcon></button>
                         <button onClick={() => dispatchTimer({ type: 'STOP' })}> <StopIcon className="stop"></StopIcon></button>
-
                     </div>)
 
                 : (<h1>Choose Task</h1>)

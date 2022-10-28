@@ -27,6 +27,5 @@ export const selectedTaskReducer = (stateSelectedTask, action) => {
             return resetSelected
         default: return stateSelectedTask
     }
-
 }
 export default selectedTaskReducer
