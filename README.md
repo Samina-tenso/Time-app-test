@@ -1,5 +1,5 @@
 # Time-app
-# heroicons, tailwind(postcss,autoprefixer), axios, date-fns, uuid,react-day,picker
+# heroicons, tailwind(postcss,autoprefixer), axios, date-fns, uuid,react-day-picker
 
 
 #Heroicons 
