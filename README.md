@@ -9,7 +9,7 @@
 -Tailwind användes som en bas för övrig CSS.
 
 #Axios
--Axios verkade som det bättre alternativet för att kunna snabbare och med mindre kod, kunna skicka och ta emot request. Det var första gången jag testade det och jag tycker att axios 
+-Axios verkade som det bättre alternativet för att kunna snabbare och med mindre kod, kunna skicka och ta emot request. Det var första gången jag testade axios och jag tycker att det underlättade programmeringen. 
 
 #Date-fns, 
 -Date-fns är ett tillägg till react-date-picker, så jag använde det för att formatera mina datum även på andra ställen i applikationen. 
