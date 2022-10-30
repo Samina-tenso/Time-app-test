@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.rdp-day_today:not(.rdp-day_outside) {
+    @apply text-slate-600
+}
+
+.rdp {
+    --rdp-cell-size: 3em;
+    --rdp-background-color: rgb(66, 73, 93);
+    --rdp-months: text-slate-50 m-0 block
+}

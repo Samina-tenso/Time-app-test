@@ -25,11 +25,7 @@ const router = createBrowserRouter([
         element: <Toggle />
       },
       {
-        path: '/tasks',
-        element: <Tasks />
-      },
-      {
-        path: '/projects/:id',
+        path: '/timer',
         element: <Tasks />
       },
       {

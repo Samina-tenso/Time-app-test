@@ -1,26 +1,22 @@
 {
   "projects": [
     {
-      "id": "69b11df9-39ad-4fa1-b6b7-0781c9202ed9",
-      "title": "jlö"
-    },
-    {
       "id": "37de11a6-77ef-453d-af47-4d22bb9884b6",
       "title": "jlöllpöjh"
+    },
+    {
+      "id": "406acb75-be5f-4634-8ce0-dc82e06b7e00",
+      "title": "dtgds"
     }
   ],
   "tasks": [
     {
-      "id": "4462825d-6c39-4142-be95-a9ce83b39976",
-      "title": "ytui",
-      "projectId": "69b11df9-39ad-4fa1-b6b7-0781c9202ed9",
-      "day": "2022-10-28"
-    },
-    {
-      "id": "1ec2ae89-ec41-4d15-bd10-0780d5e25672",
-      "title": "äå",
-      "projectId": "37de11a6-77ef-453d-af47-4d22bb9884b6",
-      "day": "2022-10-27"
+      "id": "29b5b26a-6f42-4eac-9dc8-856c56a214fd",
+      "title": "dxfgdfg",
+      "projectId": "406acb75-be5f-4634-8ce0-dc82e06b7e00",
+      "projectTitle": "dtgds",
+      "day": "2022-10-30",
+      "time": 0
     }
   ]
 }
