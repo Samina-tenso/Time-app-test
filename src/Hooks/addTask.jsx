@@ -25,7 +25,7 @@ export const useAddTask = () => {
             dispatchTask({
                 type: "ADD_TASK",
                 payload: {
-                    id: response.data.uuid,
+                    id: response.data.id,
                     title: response.data.title,
                     projectId: response.data.projectId,
                     projectTitle: response.data.projectTitle,

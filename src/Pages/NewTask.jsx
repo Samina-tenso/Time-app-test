@@ -5,14 +5,14 @@ import { SelectedProjectContext } from '../Context/SelectedProjectContext'
 import { useAddTask } from '../Hooks/addTask'
 
 function NewTask() {
-    const { stateSelected, dispatchSelected } = useContext(SelectedProjectContext)
+    const { stateSelectedProject, dispatchSelectedProject } = useContext(SelectedProjectContext)
     const { id } = useParams()
     const { addTask, error } = useAddTask()
     const [task, setTask] = useState({
         title: '',
         uuid: '',
         projectId: id,
-        projectTitle: stateSelected.selected.projectTitle,
+        projectTitle: stateSelectedProject.selected.projectTitle,
         day: '',
         time: '',
 

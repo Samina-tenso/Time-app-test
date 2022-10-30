@@ -24,13 +24,11 @@ const router = createBrowserRouter([
         path: '/projects',
         element: <Toggle />
       },
-      {
-        path: '/tasks',
-        element: <Tasks />
-      },
+
       {
         path: '/projects/:id',
         element: <Tasks />
+
       },
       {
         path: '/calender',

@@ -13,7 +13,6 @@ function Timer() {
     const { addTime } = useAddTime()
 
     useEffect(() => {
-        console.log("rerendered")
         if (!stateTimer.isRunning) {
             return
         }
@@ -22,9 +21,7 @@ function Timer() {
         return () => {
             clearInterval(timerRef.current)
             timerRef.current = 0
-
         }
-
     }, [stateTimer.isRunning])
 
     const handleSave = async (e) => {

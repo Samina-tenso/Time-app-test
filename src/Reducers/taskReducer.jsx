@@ -17,11 +17,10 @@ export const taskReducer = (stateTask, action) => {
                     ...stateTask.task, action.payload
                 ]
             }
-        case "DELETED_TASK":
-            let filteredState = {
-                ...stateTask, task: [...stateTask.task].filter((task) => task.id !== action.payload.id)
-            }
-            return filteredState
+        case "DELETE_TASK":
+            console.log(action.payload)
+            return { ...stateTask, task: [...stateTask.task].filter((task) => task.id !== action.payload.id) }
+
         case "FETCH_TASKS":
             let updateState =
             {

@@ -14,7 +14,6 @@ export const projectReducer = (state, action) => {
                     ...state.projects, action.payload
                 ]
             }
-        //...state.project is all of previous projeccts 
         case "FETCH_PROJECTS":
             let updateState =
             {
@@ -28,6 +27,5 @@ export const projectReducer = (state, action) => {
             return filteredState
         default: return state
     }
-
 }
 export default projectReducer

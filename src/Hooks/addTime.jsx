@@ -9,13 +9,11 @@ export const useAddTime = () => {
 
     // post med dispatch
     async function addTime(count, selectedId) {
-        console.log(count, selectedId)
         setError(null)
         try {
             const response = await axios.patch(`http://localhost:3000/tasks/${selectedId}`, {
                 time: count
             })
-
             dispatchTask({
                 type: "ADD_TIME",
                 payload: {
@@ -24,10 +22,9 @@ export const useAddTime = () => {
                     projectId: response.data.projectId,
                     projectTitle: response.data.projectTitle,
                     time: response.data.time,
-
                 }
             })
-            console.log(response.data)
+
             return
         } catch (error) {
             console.log(error.message)

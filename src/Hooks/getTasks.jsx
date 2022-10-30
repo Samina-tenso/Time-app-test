@@ -7,14 +7,9 @@ import { SelectedProjectContext } from "../Context/SelectedProjectContext";
 export const useGetTasks = () => {
     const { stateTask, dispatchTask } = useContext(TaskContext)
     const { state, dispatch } = useContext(ProjectContext)
-    const { stateSelected, dispatchSelected } = useContext(SelectedProjectContext)
-
-
-
-
+    const { stateSelectedProject, dispatchSelectedProject } = useContext(SelectedProjectContext)
+    let currentId
     async function getTasks(id) {
-        console.log("now", id)
-
 
         try {
             let response = await axios.get(`http://localhost:3000/tasks?projectId_like=${id}`)
@@ -22,14 +17,11 @@ export const useGetTasks = () => {
                 dispatchTask({
                     type: "FETCH_TASKS", payload: response.data
                 })
-
-
             }
         } catch (error) {
             console.log(error.message)
         }
     }
-
     return { getTasks }
 }
 

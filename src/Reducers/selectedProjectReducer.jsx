@@ -1,27 +1,18 @@
 export const initialState = {
-    selected: [{
-        projectId: null,
-        projectTitle: null,
+    selected: {
+        id: null,
+        title: null,
     }
-    ]
 }
 
-export const selectedProjectReducer = (stateSelected, action) => {
+export const selectedProjectReducer = (stateSelectedProject, action) => {
 
     switch (action.type) {
         case "SELECTED_PROJECT":
-            let selectedProject = {
-                ...stateSelected,
-                selected: action.payload
+            return {
+                selected: action.payload[0]
             }
-            console.log(selectedProject)
-            return selectedProject
-        case "RESET_SELECTED_PROJECT":
-            let resetSelectedProject = {
-                ...stateSelected,
-                selected: action.payload
-            }
-            return resetSelectedProject
+
 
         default: return stateSelected
     }

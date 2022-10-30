@@ -4,11 +4,11 @@ import { selectedProjectReducer, initialState } from "../Reducers/selectedProjec
 export const SelectedProjectContext = createContext()
 
 export const SelectedProjectProvider = ({ children }) => {
-    const [stateSelected, dispatchSelected] = useReducer(selectedProjectReducer, initialState)
-    console.log('selectedcontext state:', stateSelected)
+    const [stateSelectedProject, dispatchSelectedProject] = useReducer(selectedProjectReducer, initialState)
+    console.log('selectedcontext state:', stateSelectedProject)
 
     return (
-        <SelectedProjectContext.Provider value={{ stateSelected, dispatchSelected }}>
+        <SelectedProjectContext.Provider value={{ stateSelectedProject, dispatchSelectedProject }}>
             {children}
         </SelectedProjectContext.Provider>
     )

@@ -4,7 +4,7 @@ import React from "react"
 import { useState } from "react"
 
 function NewProject() {
-    const { addProject, error } = useAddProject()
+    const { addProject } = useAddProject()
     const [title, setTitle] = useState("")
 
     const handleSubmit = async (e) => {
