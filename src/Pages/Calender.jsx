@@ -11,6 +11,7 @@ export function Calender() {
     const [selected, setSelected] = React.useState(formatISO(new Date(), { representation: 'date' }));
 
     useEffect(() => {
+        console.log("hu")
         getByDate(currentDate)
         console.log(selected)
     }, [selected])

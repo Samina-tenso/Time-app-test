@@ -24,6 +24,7 @@ const router = createBrowserRouter([
       {
         path: '/timer',
         element: <Tasks />
+
       },
       {
         path: '/calender',

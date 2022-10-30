@@ -24,7 +24,6 @@ export const useAddTime = () => {
                     projectId: response.data.projectId,
                     projectTitle: response.data.projectTitle,
                     time: response.data.time,
-
                 }
             })
             console.log(response.data.time)

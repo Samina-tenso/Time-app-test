@@ -15,17 +15,15 @@ export const useDeleteTask = () => {
 
                 console.log(response.data)
                 dispatchTask({
-                    type: "DELETED_TASK",
+                    type: "DELETE_TASK",
                     payload: {
                         id: id,
                     }
                 })
-
                 return true
             } else {
                 console.log(error.message)
             }
-
         } catch (error) {
             console.log(error.message)
         }
