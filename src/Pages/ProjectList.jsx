@@ -8,40 +8,10 @@ import { useGetProjects } from "../Hooks/getProjects";
 import { TrashIcon } from '@heroicons/react/24/outline'
 import { SelectedTaskContext } from '../Context/SelectedTaskContext';
 
-
-
 export default function ProjectList() {
     const { state, dispatch } = useContext(ProjectContext)
-    const { deleteProject, error } = useDeleteProject()
-    const { stateSelected, dispatchSelected } = useContext(SelectedProjectContext)
-    const { stateSelectedTask, initialState, dispatchSelectedTask } = useContext(SelectedTaskContext)
-    const { getProjects } = useGetProjects()
-    // const [selectedId, setSelectedId ] = useState()
+    const { deleteProject } = useDeleteProject()
 
-    useEffect(() => {
-
-        console.log(initialState)
-        console.log(stateSelected)
-        console.log(state)
-        console.log("newn")
-
-    }, [state])
-
-    // const handleSelected = (id, title) => {
-    //     try {
-    //         console.log(id)
-    //         dispatchSelected({
-    //             type: "SELECTED_PROJECT",
-    //             payload: {
-    //                 projectId: id,
-    //                 projectTitle: title
-    //             }
-    //         })
-    //         console.log(stateSelected)
-    //     } catch (error) {
-    //         console.log(error.message)
-    //     }
-    // }
     const handleDelete = (id) => {
         console.log(id)
         deleteProject(id)
@@ -52,8 +22,8 @@ export default function ProjectList() {
                 {
                     state.projects.map(project => {
                         return <div className="list-container">
-                            <Link to={`${project.id}`} className=" ">
-                                <li key={project.id} className="  "> {project.title}</li></Link>
+
+                            <li key={project.id} className="  "> {project.title}</li>
                             <button onClick={() => handleDelete(project.id)} className=" "> <TrashIcon className="trash-icon" /></button></div>
                     })
                 }

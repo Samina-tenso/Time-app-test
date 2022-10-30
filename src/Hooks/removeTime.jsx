@@ -3,27 +3,22 @@ import { TaskContext } from "../Context/TaskContext"
 import { useContext, useState } from "react"
 import axios from "axios"
 
-export const useAddTime = () => {
-    const [error, setError] = useState(null)
+export const useRemoveTime = () => {
     const { stateTask, dispatchTask } = useContext(TaskContext)
-
-    // post med dispatch
-    async function addTime(count, selectedId) {
-        console.log(count, selectedId)
-        setError(null)
+    async function removeTime(id) {
         try {
-            const response = await axios.patch(`http://localhost:3000/tasks/${selectedId}`, {
-                time: count
+            const response = await axios.patch(`http://localhost:3000/tasks/${id}`, {
+                time: ''
             })
-            console.log("added")
+            console.log("removed")
             dispatchTask({
-                type: "ADD_TIME",
+                type: "REMOVE_TIME",
                 payload: {
                     id: response.data.id,
                     title: response.data.title,
                     projectId: response.data.projectId,
                     projectTitle: response.data.projectTitle,
-                    time: response.data.time,
+                    time: ''
 
                 }
             })
@@ -33,6 +28,6 @@ export const useAddTime = () => {
             console.log(error.message)
         }
     }
-    return { addTime, error }
+    return { removeTime }
 }
 

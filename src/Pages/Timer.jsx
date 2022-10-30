@@ -24,7 +24,6 @@ function Timer() {
             timerRef.current = 0
 
         }
-
     }, [stateTimer.isRunning])
 
     const handleSave = async (e) => {
@@ -49,7 +48,9 @@ function Timer() {
             {stateSelectedTask.selectedTask.title ?
                 (
                     <div >
+
                         <h1>{stateTimer.time}</h1>
+                        <h2>Project:{stateSelectedTask.selectedTask ? (stateSelectedTask.selectedTask.projectTitle) : null}</h2>
                         <h2>task:{stateSelectedTask.selectedTask ? (stateSelectedTask.selectedTask.title) : null}</h2>
                         <button onClick={handleSave}> <BookmarkIcon className="save"></BookmarkIcon></button>
                         <button onClick={() => dispatchTimer({ type: 'START' })}> <PlayIcon className="play"></PlayIcon></button>

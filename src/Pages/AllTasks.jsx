@@ -6,7 +6,7 @@ function AllTasks() {
     const { stateTask, dispatchTask } = useContext(TaskContext)
     const { getAllTasks } = useGetAllTasks()
     useEffect(() => {
-        getAllTasks()
+        //     getAllTasks()
 
     }, [])
 

@@ -1,11 +1,8 @@
 export const initialState = {
     selectedTask: [{
-        uuid: '',
+        id: '',
         title: '',
-        projectId: null,
-        projectTitle: null,
-        time: ' '
-
+        projectTitle: '',
     }
     ]
 }

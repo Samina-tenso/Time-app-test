@@ -11,7 +11,6 @@ export const useAddTask = () => {
     const { stateTask, dispatchTask } = useContext(TaskContext)
     // post med dispatch
     async function addTask({ title, projectId, projectTitle }) {
-        console.log(projectId, title)
         setError(null)
         try {
             const response = await axios.post("http://localhost:3000/tasks", {
@@ -25,7 +24,7 @@ export const useAddTask = () => {
             dispatchTask({
                 type: "ADD_TASK",
                 payload: {
-                    id: response.data.uuid,
+                    id: response.data.id,
                     title: response.data.title,
                     projectId: response.data.projectId,
                     projectTitle: response.data.projectTitle,

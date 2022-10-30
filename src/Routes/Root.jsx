@@ -10,7 +10,7 @@ export function Root() {
     return (
         <div>
             <ul className="root-container" >
-                <li className=""> <Link to={`/projects/${stateSelected.selected}`} href="#">Tasks</Link></li>
+                <li className=""> <Link to={`/timer`} href="#">Timer</Link></li>
                 <li className=""> <Link to={`/calender`} href="#">Calender</Link></li>
                 <li className=""> <Link to={`/projects`} href="#">Projects</Link></li>
             </ul >
