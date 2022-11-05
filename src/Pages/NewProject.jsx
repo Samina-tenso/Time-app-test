@@ -16,10 +16,10 @@ function NewProject() {
         setTitle(e.target.value)
     }
     return (
-        <Form className="form">
+        <Form className="form flex flex-col m-10 space-y-4 ">
             <h2>Name your new project</h2>
-            <input type="text" placeholder="project name" value={title} onChange={(e) => handleChange(e)} required />
-            <button type="submit" onClick={handleSubmit}>Add Project</button>
+            <input type="text" placeholder="project name" className="rounded-full text-slate-900 " value={title} onChange={(e) => handleChange(e)} required />
+            <button type="submit" className="bg-slate-900 p-6  hover:bg-slate-600 active:text-slate-900" onClick={handleSubmit}>Add Project</button>
         </Form>
     )
 }

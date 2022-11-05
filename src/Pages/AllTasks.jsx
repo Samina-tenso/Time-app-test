@@ -6,12 +6,12 @@ function AllTasks() {
     const { stateTask, dispatchTask } = useContext(TaskContext)
     const { getAllTasks } = useGetAllTasks()
     useEffect(() => {
-        //     getAllTasks()
+        getAllTasks()
 
     }, [])
 
     return (
-        <div className="">
+        <div className="bg-slate-800 pb-20" >
             <ul className="tag-container">
                 <li> <p>Name</p></li>
                 <li> <p> Project Name</p></li>

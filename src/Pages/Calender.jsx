@@ -4,7 +4,6 @@ import { DayPicker } from 'react-day-picker'
 import { format, formatISO } from 'date-fns'
 import { useGetByDate } from '../Hooks/getByDate'
 import 'react-day-picker/dist/style.css';
-//import '../Styles/calender.css'
 
 function Calender() {
     const { getByDate } = useGetByDate()
@@ -23,7 +22,7 @@ function Calender() {
         <>
             <div className="flex justify-center items-center">
                 <span>
-                    < h1> Calender</h1 >
+                    < h1 className="text-2xl mt-4"> Calender</h1 >
                     <DayPicker
                         mode="single"
                         selected={selected}

@@ -1,24 +1,24 @@
 import React, { useState } from 'react'
-import '../Styles/toggle.css'
+
 import Projects from './Projects'
 import AllTasks from './AllTasks'
 function Toggle() {
     const [isOpen, setIsOpen] = useState(true)
     const [selected, setSelected] = useState("projects")
 
-    const handleToggle = () => {
+    const handleToggleProject = () => {
         setSelected("projects")
         setIsOpen(true)
     }
-    const handleBoggle = () => {
+    const handleToggleTasks = () => {
         setSelected("tasks")
         setIsOpen(false)
     }
     return (
         <div >
-            <div className="toggle-container ">
-                <button onClick={handleToggle} className="toggle-button"> Projects</button>
-                <button onClick={handleBoggle} className="toggle-button"> All tasks</button>
+            <div className="m-6">
+                <button onClick={handleToggleProject} name="projects" className={`p-4 ${selected == "projects" ? "bg-slate-600" : "bg-slate-900"}`}> Projects</button>
+                <button onClick={handleToggleTasks} name="tasks" className={`p-4 ${selected == "tasks" ? "bg-slate-600" : "bg-slate-900"}`}> All tasks</button>
             </div>
             {isOpen ? (<Projects />) : (<AllTasks />)}
         </div >
