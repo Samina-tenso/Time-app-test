@@ -7,6 +7,10 @@ import { SelectedTaskContext } from '../Context/SelectedTaskContext';
 import { ProjectContext } from "../Context/ProjectContext"
 import { TimerContext } from '../Context/TimerContext';
 import { useRemoveTime } from '../Hooks/removeTime';
+import { TrashIcon } from '@heroicons/react/24/outline'
+import { MinusCircleIcon } from '@heroicons/react/24/solid'
+import { ClockIcon } from '@heroicons/react/24/outline'
+
 
 function TaskList() {
     const { stateTask, dispatchTask } = useContext(TaskContext)
@@ -16,7 +20,7 @@ function TaskList() {
     const { stateTimer, dispatchTimer } = useContext(TimerContext)
     const { stateSelectedTask, dispatchSelectedTask } = useContext(SelectedTaskContext)
     useEffect(() => {
-
+        getTasks()
     }, [])
     const handleSelected = (id, title, projectTitle) => {
         dispatchSelectedTask({
@@ -46,24 +50,21 @@ function TaskList() {
     }
 
     return (
-        <div className="">
+        <div className=" bg-slate-800 pb-20">
             <ul>
                 {
                     stateTask.task.map(task => {
-                        return <div className="list-container" >
-                            <span onClick={() => handleSelected(task.id, task.title, task.projectTitle)} >
-                                <li key={task.id} className=""> {task.title}  {task.time}{task.projectTitle}</li>
+                        return <div className="flex py-6  align-center bg-slate-900" >
+                            <span className=" basis-3/5" onClick={() => handleSelected(task.id, task.title, task.projectTitle)} >
+                                <li key={task.id} className="text-xl pt-3"> <span className="px-2">{task.projectTitle}</span><span className="px-2 font-bold"> {task.title} </span> <span className="px-2">{task.time}</span></li>
                             </span>
-                            <button onClick={() => handleRemoveTime(task.id)}>Remove Time </button>
-                            <button onClick={() => handleDelete(task.id)}>Delete </button>
-
-
+                            <button className="basis-1/5 rounded-full pt-3 hover:bg-slate-600 active:text-slate-900" onClick={() => handleRemoveTime(task.id)}><ClockIcon className="absolute  inline w-6 " /><MinusCircleIcon className=" relative m-3 inline w-4" /></button>
+                            <button className="basis-1/5 rounded-full pt-3 hover:bg-slate-600 active:text-slate-900 mr-6" onClick={() => handleDelete(task.id)}><TrashIcon className="inline w-6 mb-3 " /></button>
                         </div>
-
                     })
                 }
-            </ul>
-        </div>
+            </ul >
+        </div >
     )
 }
 

@@ -5,7 +5,6 @@ import Timer from './Timer'
 function Tasks() {
     return (
         <div>
-            <div>Tasks</div>
             <Timer />
             <NewTask />
             <TaskList />

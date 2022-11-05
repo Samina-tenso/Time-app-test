@@ -5,7 +5,6 @@ import { BookmarkIcon } from '@heroicons/react/24/outline'
 import { SelectedTaskContext } from '../Context/SelectedTaskContext';
 import { useAddTime } from '../Hooks/addTime';
 import { TimerContext } from '../Context/TimerContext';
-import '../Styles/timer.css'
 function Timer() {
     const { stateSelectedTask, dispatchSelectedTask } = useContext(SelectedTaskContext)
     const { stateTimer, dispatchTimer } = useContext(TimerContext)
@@ -45,16 +44,16 @@ function Timer() {
 
     return (
         <>
+            <div className="m-4 text-2xl">Timer</div>
             {stateSelectedTask.selectedTask.title ?
                 (
-                    <div >
-
-                        <h1>{stateTimer.time}</h1>
-                        <h2>Project:{stateSelectedTask.selectedTask ? (stateSelectedTask.selectedTask.projectTitle) : null}</h2>
-                        <h2>task:{stateSelectedTask.selectedTask ? (stateSelectedTask.selectedTask.title) : null}</h2>
-                        <button onClick={handleSave}> <BookmarkIcon className="save"></BookmarkIcon></button>
-                        <button onClick={() => dispatchTimer({ type: 'START' })}> <PlayIcon className="play"></PlayIcon></button>
-                        <button onClick={() => dispatchTimer({ type: 'STOP' })}> <StopIcon className="stop"></StopIcon></button>
+                    <div className="space-y-4" >
+                        <h1 className="text-2xl">{stateTimer.time}</h1>
+                        <h2 className="text-xl">Project: {stateSelectedTask.selectedTask ? (stateSelectedTask.selectedTask.projectTitle) : null}</h2>
+                        <h2 className="text-xl font-bold">Task: {stateSelectedTask.selectedTask ? (stateSelectedTask.selectedTask.title) : null}</h2>
+                        <button className=" rounded-full p-1 hover:bg-slate-600 active:bg-slate-900" onClick={handleSave}> <BookmarkIcon className="w-8 m-2"></BookmarkIcon></button>
+                        <button className=" rounded-full p-1 hover:bg-slate-600 active:bg-slate-900" onClick={() => dispatchTimer({ type: 'START' })}> <PlayIcon className="w-8 m-2 "></PlayIcon></button>
+                        <button className=" rounded-full p-1 hover:bg-slate-600 active:bg-slate-900" onClick={() => dispatchTimer({ type: 'STOP' })}> <StopIcon className="w-8 m-2"></StopIcon></button>
                     </div>)
 
                 : (<h1>Choose Task</h1>)

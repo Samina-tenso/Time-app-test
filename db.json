@@ -1,22 +1,13 @@
 {
   "projects": [
     {
-      "id": "37de11a6-77ef-453d-af47-4d22bb9884b6",
-      "title": "jlöllpöjh"
+      "id": "6d66e1ad-3ea2-4453-a054-40c0264aa510",
+      "title": "sadf"
     },
     {
-      "id": "406acb75-be5f-4634-8ce0-dc82e06b7e00",
-      "title": "dtgds"
+      "id": "9bc28525-8a65-423b-96ea-55416cba609f",
+      "title": "sadfasd"
     }
   ],
-  "tasks": [
-    {
-      "id": "29b5b26a-6f42-4eac-9dc8-856c56a214fd",
-      "title": "dxfgdfg",
-      "projectId": "406acb75-be5f-4634-8ce0-dc82e06b7e00",
-      "projectTitle": "dtgds",
-      "day": "2022-10-30",
-      "time": 0
-    }
-  ]
+  "tasks": []
 }

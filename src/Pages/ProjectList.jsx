@@ -1,12 +1,8 @@
 import React from "react";
 import { useEffect, useContext } from "react";
 import { ProjectContext } from "../Context/ProjectContext";
-import { SelectedProjectContext } from "../Context/SelectedProjectContext";
 import { useDeleteProject } from "../Hooks/deleteProject";
-import { Link } from "react-router-dom";
-import { useGetProjects } from "../Hooks/getProjects";
 import { TrashIcon } from '@heroicons/react/24/outline'
-import { SelectedTaskContext } from '../Context/SelectedTaskContext';
 
 export default function ProjectList() {
     const { state, dispatch } = useContext(ProjectContext)
@@ -17,14 +13,14 @@ export default function ProjectList() {
         deleteProject(id)
     }
     return (
-        <div className="container" >
+        <div className=" bg-slate-800 pb-20" >
             < ul >
                 {
                     state.projects.map(project => {
-                        return <div className="list-container">
+                        return <div className=" flex p-6 justify-around space-between w-screen bg-slate-900">
 
-                            <li key={project.id} className="  "> {project.title}</li>
-                            <button onClick={() => handleDelete(project.id)} className=" "> <TrashIcon className="trash-icon" /></button></div>
+                            <li key={project.id} className="flex-1 text-xl"> {project.title}</li>
+                            <button onClick={() => handleDelete(project.id)} className="flex-1 rounded-full p-3 hover:bg-slate-600 active:text-slate-900"> <TrashIcon className="inline w-6" /></button></div>
                     })
                 }
             </ul >

@@ -22,7 +22,6 @@ export const ProjectProvider = ({ children }) => {
             }
         }
         getProjects()
-
     }, [])
 
     return (

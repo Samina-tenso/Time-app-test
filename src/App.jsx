@@ -4,7 +4,6 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom'
-import './Styles/app.css'
 import { ProjectProvider } from './Context/ProjectContext'
 import { Root } from './Routes/Root'
 import Tasks from './Pages/Tasks'
@@ -39,7 +38,7 @@ const router = createBrowserRouter([
 function App() {
 
   return (
-    <div className="App  ">
+    <div className="flex text-slate-50 text-center flex-col h-screen bg-slate-800">
       < SelectedProjectProvider>
         <SelectedTaskProvider>
           <TimerProvider>

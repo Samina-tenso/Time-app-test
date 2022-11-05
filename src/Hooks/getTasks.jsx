@@ -8,28 +8,19 @@ export const useGetTasks = () => {
     const { stateTask, dispatchTask } = useContext(TaskContext)
     const { state, dispatch } = useContext(ProjectContext)
     const { stateSelected, dispatchSelected } = useContext(SelectedProjectContext)
-
-
-
-
-    async function getTasks(id) {
-        console.log("now", id)
-
+    async function getTasks() {
 
         try {
-            let response = await axios.get(`http://localhost:3000/tasks?projectId_like=${id}`)
+            let response = await axios.get("http://localhost:3000/tasks")
             if (response.status == 200) {
                 dispatchTask({
                     type: "FETCH_TASKS", payload: response.data
                 })
-
-
             }
         } catch (error) {
             console.log(error.message)
         }
     }
-
     return { getTasks }
 }
 
