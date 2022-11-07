@@ -10,7 +10,7 @@ export const useGetByDate = () => {
     async function getByDate(currentDate) {
         //console.log(currentDate)
         try {
-            let response = await axios.get(`http://localhost:3000/tasks?day_like=${currentDate}`)
+            let response = await axios.get(`http://localhost:3001/tasks?day_like=${currentDate}`)
             console.log(response)
             if (response.status == 200) {
                 dispatchTask({

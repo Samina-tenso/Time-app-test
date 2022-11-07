@@ -13,7 +13,7 @@ export const useAddTask = () => {
     async function addTask({ title, projectId, projectTitle }) {
         setError(null)
         try {
-            const response = await axios.post("http://localhost:3000/tasks", {
+            const response = await axios.post("http://localhost:3001/tasks", {
                 id: uuidv4(),
                 title: title,
                 projectId: projectId,

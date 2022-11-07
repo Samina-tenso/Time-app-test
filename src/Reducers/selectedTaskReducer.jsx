@@ -8,7 +8,6 @@ export const initialState = {
 }
 
 export const selectedTaskReducer = (stateSelectedTask, action) => {
-
     switch (action.type) {
         case "SELECTED_TASK":
             let currentTask = {

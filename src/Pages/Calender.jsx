@@ -5,9 +5,9 @@ import { format, formatISO } from 'date-fns'
 import { useGetByDate } from '../Hooks/getByDate'
 import 'react-day-picker/dist/style.css';
 
-function Calender() {
+export function Calender() {
     const { getByDate } = useGetByDate()
-    const { stateTask, dispatchTask } = useContext(TaskContext)
+    const { stateTask } = useContext(TaskContext)
     const [selected, setSelected] = React.useState(formatISO(new Date(), { representation: 'date' }));
 
     useEffect(() => {
@@ -50,5 +50,3 @@ function Calender() {
         </>
     )
 }
-
-export default Calender

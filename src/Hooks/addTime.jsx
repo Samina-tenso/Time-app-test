@@ -12,7 +12,7 @@ export const useAddTime = () => {
         console.log(count, selectedId)
         setError(null)
         try {
-            const response = await axios.patch(`http://localhost:3000/tasks/${selectedId}`, {
+            const response = await axios.patch(`http://localhost:3001/tasks/${selectedId}`, {
                 time: count
             })
             console.log("added")

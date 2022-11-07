@@ -1,14 +1,14 @@
-import React from 'react'
-import { Form, useParams } from 'react-router-dom'
-import { useState, useContext } from 'react'
-import { ProjectContext } from '../Context/ProjectContext'
-import { useAddTask } from '../Hooks/addTask'
-import { ChevronDownIcon } from '@heroicons/react/24/solid'
+import React from 'react';
+import { Form } from 'react-router-dom';
+import { useState, useContext } from 'react';
+import { ProjectContext } from '../../Context/ProjectContext';
+import { useAddTask } from '../../Hooks/addTask';
+import { ChevronDownIcon } from '@heroicons/react/24/solid';
 
-function NewTask() {
-    const { state, dispatch } = useContext(ProjectContext)
+export function NewTask() {
+    const { state } = useContext(ProjectContext)
     const [isOpen, setIsOpen] = useState(false)
-    const { addTask, error } = useAddTask()
+    const { addTask } = useAddTask()
     const [task, setTask] = useState({
         title: '',
         id: '',
@@ -16,7 +16,6 @@ function NewTask() {
         projectTitle: '',
         day: '',
         time: '',
-
     })
     const handleChange = (e) => {
         e.preventDefault()
@@ -26,6 +25,7 @@ function NewTask() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         await addTask(task)
+        task.title = ('')
     }
     const chooseProject = (id, title) => {
         task.projectId = id
@@ -33,7 +33,6 @@ function NewTask() {
         setTask({ ...task })
     }
     const handleDropDown = () => {
-        console.log("ee")
         console.log(isOpen)
         if (!isOpen) {
             setIsOpen(true)
@@ -48,12 +47,11 @@ function NewTask() {
     return (
         <Form className="form form flex flex-col m-10 space-y-4">
             <h2> Name your new task </h2>
-            <input type="text" placeholder='task name' className="rounded-full text-slate-900" value={task.title} onChange={(e) => handleChange(e)} required />
+            <input type="text" placeholder='task name' className="rounded-full text-slate-900 p-2" value={task.title} onChange={(e) => handleChange(e)} required />
             <div className="flex justify-around ">
                 {
                     task.projectId ? task.projectTitle : <label >Choose project </label>
                 }
-
                 <button className=" w-10   h-8 bg-slate-900 hover:bg-slate-600" onClick={handleDropDown} > <ChevronDownIcon className=" inline w-4" /> </button>
             </div>
             {
@@ -67,17 +65,9 @@ function NewTask() {
                             })
                         }
                     </div>
-
                 ) : null
-
-
-
             }
-
-
             <button type="submit" className="bg-slate-900 p-6  hover:bg-slate-600 active:text-slate-900" onClick={handleSubmit}>Add Task</button>
         </Form >
     )
 }
-
-export default NewTask

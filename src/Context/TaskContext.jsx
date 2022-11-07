@@ -1,7 +1,5 @@
-import { useEffect } from "react";
 import { createContext, useReducer } from "react";
 import { taskReducer, initialState } from "../Reducers/taskReducer";
-import axios from "axios";
 
 export const TaskContext = createContext()
 

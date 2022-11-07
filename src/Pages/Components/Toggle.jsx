@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
+import { Projects } from '../Projects'
+import { AllTasks } from '../AllTasks'
 
-import Projects from './Projects'
-import AllTasks from './AllTasks'
-function Toggle() {
+export function Toggle() {
     const [isOpen, setIsOpen] = useState(true)
     const [selected, setSelected] = useState("projects")
 
@@ -24,5 +24,3 @@ function Toggle() {
         </div >
     )
 }
-
-export default Toggle
