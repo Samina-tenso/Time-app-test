@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { useGetAllTasks } from '../Hooks/getAllTasks'
 import { TaskContext } from "../Context/TaskContext";
 import '../Styles/allTasks.css'
-function AllTasks() {
+export function AllTasks() {
     const { stateTask, dispatchTask } = useContext(TaskContext)
     const { getAllTasks } = useGetAllTasks()
     useEffect(() => {
@@ -33,5 +33,3 @@ function AllTasks() {
         </div >
     )
 }
-
-export default AllTasks

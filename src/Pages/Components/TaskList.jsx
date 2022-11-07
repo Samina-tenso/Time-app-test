@@ -1,23 +1,22 @@
 import React from 'react'
-import { useState, useEffect, useContext } from "react";
-import { TaskContext } from "../Context/TaskContext";
-import { useDeleteTask } from '../Hooks/deleteTask';
-import { useGetTasks } from '../Hooks/getTasks';
-import { SelectedTaskContext } from '../Context/SelectedTaskContext';
-import { ProjectContext } from "../Context/ProjectContext"
-import { TimerContext } from '../Context/TimerContext';
-import { useRemoveTime } from '../Hooks/removeTime';
+import { useEffect, useContext } from 'react';
+import { TaskContext } from '../../Context/TaskContext';
+import { useDeleteTask } from '../../Hooks/deleteTask';
+import { useGetTasks } from '../../Hooks/getTasks';
+import { SelectedTaskContext } from '../../Context/SelectedTaskContext';
+import { TimerContext } from '../../Context/TimerContext';
+import { useRemoveTime } from '../../Hooks/removeTime';
 import { TrashIcon } from '@heroicons/react/24/outline'
 import { MinusCircleIcon } from '@heroicons/react/24/solid'
 import { ClockIcon } from '@heroicons/react/24/outline'
 
 
-function TaskList() {
-    const { stateTask, dispatchTask } = useContext(TaskContext)
+export function TaskList() {
+    const { stateTask } = useContext(TaskContext)
     const { deleteTask } = useDeleteTask()
     const { removeTime } = useRemoveTime()
     const { getTasks } = useGetTasks()
-    const { stateTimer, dispatchTimer } = useContext(TimerContext)
+    const { dispatchTimer } = useContext(TimerContext)
     const { stateSelectedTask, dispatchSelectedTask } = useContext(SelectedTaskContext)
     useEffect(() => {
         getTasks()
@@ -36,7 +35,6 @@ function TaskList() {
         })
     }
     const handleDelete = (id) => {
-        console.log(id)
         deleteTask(id)
         if (id == stateSelectedTask.selectedTask.id) {
             dispatchSelectedTask({
@@ -67,5 +65,3 @@ function TaskList() {
         </div >
     )
 }
-
-export default TaskList

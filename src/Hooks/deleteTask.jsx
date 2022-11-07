@@ -10,7 +10,7 @@ export const useDeleteTask = () => {
         console.log(id)
         setError(null)
         try {
-            const response = await axios.delete(`http://localhost:3000/tasks/${id}`)
+            const response = await axios.delete(`http://localhost:3001/tasks/${id}`)
             if (response.status == 200) {
 
                 console.log(response.data)

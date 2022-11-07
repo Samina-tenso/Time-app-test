@@ -10,7 +10,7 @@ export const useDeleteProject = () => {
     async function deleteProject(id) {
         console.log(id)
         try {
-            const res = await axios.delete(`http://localhost:3000/projects/${id}`)
+            const res = await axios.delete(`http://localhost:3001/projects/${id}`)
             console.log(res)
             if (res.status == 200) {
 

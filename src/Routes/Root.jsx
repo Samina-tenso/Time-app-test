@@ -1,13 +1,7 @@
-import { NavLink, Link } from "react-router-dom"
-
+import { NavLink } from "react-router-dom"
 import { Outlet } from "react-router-dom"
-import { useContext, useState } from "react"
-import { SelectedProjectContext } from "../Context/SelectedProjectContext"
 
 export function Root() {
-    const { stateSelected } = useContext(SelectedProjectContext)
-    console.log(stateSelected)
-
     return (
         <div>
             <ul className="fixed bottom-0  z-20 bg-slate-900 inset-x-0 flex text-center justify-center " >
@@ -17,7 +11,5 @@ export function Root() {
             </ul >
             <Outlet />
         </div >
-
     )
-
 }

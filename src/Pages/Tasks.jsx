@@ -1,8 +1,9 @@
-import React from 'react'
-import NewTask from './NewTask'
-import TaskList from './TaskList'
-import Timer from './Timer'
-function Tasks() {
+import { React } from 'react'
+import { NewTask } from './Components/NewTask'
+import { TaskList } from './Components/TaskList'
+import { Timer } from './Components/Timer'
+
+export function Tasks() {
     return (
         <div>
             <Timer />
@@ -12,4 +13,3 @@ function Tasks() {
     )
 }
 
-export default Tasks

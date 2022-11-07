@@ -1,7 +1,7 @@
 import React from "react";
-import NewProject from "./NewProject";
-import ProjectList from "./ProjectList";
-export default function Projects() {
+import { NewProject } from "./Components/NewProject";
+import { ProjectList } from "./Components/ProjectList";
+export function Projects() {
     return (
         <>
             <div className="justify-center">

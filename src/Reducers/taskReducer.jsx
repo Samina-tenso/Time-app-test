@@ -42,6 +42,5 @@ export const taskReducer = (stateTask, action) => {
             return removedTimeState
         default: return stateTask
     }
-
 }
 export default taskReducer

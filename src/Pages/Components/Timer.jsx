@@ -2,11 +2,12 @@ import React, { useRef, useEffect, useContext } from 'react'
 import { PlayIcon } from '@heroicons/react/24/outline'
 import { StopIcon } from '@heroicons/react/24/outline'
 import { BookmarkIcon } from '@heroicons/react/24/outline'
-import { SelectedTaskContext } from '../Context/SelectedTaskContext';
-import { useAddTime } from '../Hooks/addTime';
-import { TimerContext } from '../Context/TimerContext';
-function Timer() {
-    const { stateSelectedTask, dispatchSelectedTask } = useContext(SelectedTaskContext)
+import { SelectedTaskContext } from '../../Context/SelectedTaskContext';
+import { useAddTime } from '../../Hooks/addTime';
+import { TimerContext } from '../../Context/TimerContext';
+
+export function Timer() {
+    const { stateSelectedTask } = useContext(SelectedTaskContext)
     const { stateTimer, dispatchTimer } = useContext(TimerContext)
     const timerRef = useRef(0)
     const { addTime } = useAddTime()
@@ -23,7 +24,7 @@ function Timer() {
             timerRef.current = 0
 
         }
-    }, [stateTimer.isRunning])
+    }, [stateTimer.isRunning, stateSelectedTask])
 
     const handleSave = async (e) => {
         let count = stateTimer.time
@@ -61,5 +62,3 @@ function Timer() {
         </>
     )
 }
-
-export default Timer
