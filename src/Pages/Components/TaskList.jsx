@@ -21,13 +21,14 @@ export function TaskList() {
     useEffect(() => {
         getTasks()
     }, [])
-    const handleSelected = (id, title, projectTitle) => {
+    const handleSelected = (id, title, projectTitle, projectId) => {
         dispatchSelectedTask({
-            type: "SELECTED_TASK",
+            type: 'SELECTED_TASK',
             payload: {
                 id: id,
                 title: title,
                 projectTitle: projectTitle,
+                projectId: projectId
             }
         })
         dispatchTimer({
@@ -48,12 +49,12 @@ export function TaskList() {
     }
 
     return (
-        <div className=" bg-slate-800 pb-20">
+        <div className="bg-slate-800 pb-20">
             <ul>
                 {
                     stateTask.task.map(task => {
-                        return <div className="flex py-6  align-center bg-slate-900" >
-                            <span className=" basis-3/5" onClick={() => handleSelected(task.id, task.title, task.projectTitle)} >
+                        return <div className="flex py-6 align-center bg-slate-900" >
+                            <span className=" basis-3/5" onClick={() => handleSelected(task.id, task.title, task.projectTitle, task.projectId)} >
                                 <li key={task.id} className="text-xl pt-3"> <span className="px-2">{task.projectTitle}</span><span className="px-2 font-bold"> {task.title} </span> <span className="px-2">{task.time}</span></li>
                             </span>
                             <button className="basis-1/5 rounded-full pt-3 hover:bg-slate-600 active:text-slate-900" onClick={() => handleRemoveTime(task.id)}><ClockIcon className="absolute  inline w-6 " /><MinusCircleIcon className=" relative m-3 inline w-4" /></button>

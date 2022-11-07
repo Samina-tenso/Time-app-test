@@ -26,6 +26,7 @@ export function NewTask() {
         e.preventDefault()
         await addTask(task)
         task.title = ('')
+        task.projectTitle = ('')
     }
     const chooseProject = (id, title) => {
         task.projectId = id

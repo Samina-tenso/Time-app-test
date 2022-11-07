@@ -3,6 +3,7 @@ export const initialState = {
         id: '',
         title: '',
         projectTitle: '',
+        projectId: '',
     }
     ]
 }
