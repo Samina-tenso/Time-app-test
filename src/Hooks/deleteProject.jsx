@@ -4,36 +4,31 @@ import { useContext, useState } from "react"
 import axios, { AxiosError } from "axios"
 
 export const useDeleteProject = () => {
-    const [error, setError] = useState(null)
+
     const { state, dispatch } = useContext(ProjectContext)
-    const [removed, setRemoved] = useState(false)
 
     async function deleteProject(id) {
         console.log(id)
-        setError(null)
         try {
-            const res = await axios.delete(`http://localhost:3000/projects/${id}`)
+            const res = await axios.delete(`http://localhost:3001/projects/${id}`)
             console.log(res)
+            if (res.status == 200) {
 
-            try {
-                const restask = await axios.delete(`http://localhost:3000/tasks?projectId=${id}`)
-                console.log(restask)
-                return
-            } catch (error) {
+                console.log(res.data)
+                dispatch({
+                    type: "DELETED_PROJECT",
+                    payload: {
+                        id: id,
+                    }
+                })
+
+                return true
+            } else {
                 console.log(error.message)
             }
         } catch (error) {
-
             console.log(error.message)
         }
-
     }
-
-
-    return { deleteProject, error }
+    return { deleteProject }
 }
-
- // if (response.status === 200) {
-        //     console.log(response.data)
-        //
-        // }

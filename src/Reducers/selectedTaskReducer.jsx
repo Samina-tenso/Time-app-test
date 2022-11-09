@@ -1,17 +1,14 @@
 export const initialState = {
     selectedTask: [{
-        uuid: '',
+        id: '',
         title: '',
-        projectId: null,
-        projectTitle: null,
-        time: ' '
-
+        projectTitle: '',
+        projectId: '',
     }
     ]
 }
 
 export const selectedTaskReducer = (stateSelectedTask, action) => {
-
     switch (action.type) {
         case "SELECTED_TASK":
             let currentTask = {

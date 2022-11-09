@@ -1,6 +1,6 @@
 export const initialState = {
     task: [{
-        uuid: '',
+        id: '',
         title: '',
         projectId: null,
         projectTitle: null
@@ -29,13 +29,18 @@ export const taskReducer = (stateTask, action) => {
             }
             return updateState
         case "ADD_TIME":
-            let addedtimeState =
+            let addedTimeState =
             {
                 ...stateTask, task: [...stateTask.task.filter((task) => task.id !== action.payload.id), action.payload]
             }
-            return addedtimeState
+            return addedTimeState
+        case "REMOVE_TIME":
+            let removedTimeState =
+            {
+                ...stateTask, task: [...stateTask.task.filter((task) => task.id !== action.payload.id), action.payload]
+            }
+            return removedTimeState
         default: return stateTask
     }
-
 }
 export default taskReducer

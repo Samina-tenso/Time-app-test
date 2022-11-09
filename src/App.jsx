@@ -1,19 +1,16 @@
 import React from 'react'
 import {
   createBrowserRouter,
-  Route,
   RouterProvider,
 } from 'react-router-dom'
-import './Styles/app.css'
 import { ProjectProvider } from './Context/ProjectContext'
 import { Root } from './Routes/Root'
-import Tasks from './Pages/Tasks'
-import Calender from './Pages/Calender'
+import { Tasks } from './Pages/Tasks'
+import { Calender } from './Pages/Calender'
 import { TaskProvider } from './Context/TaskContext'
-import { SelectedProjectProvider } from './Context/SelectedProjectContext'
 import { TimerProvider } from './Context/TimerContext'
 import { SelectedTaskProvider } from './Context/SelectedTaskContext'
-import Toggle from './Pages/Toggle'
+import { Toggle } from './Pages/Components/Toggle'
 
 const router = createBrowserRouter([
   {
@@ -25,11 +22,7 @@ const router = createBrowserRouter([
         element: <Toggle />
       },
       {
-        path: '/tasks',
-        element: <Tasks />
-      },
-      {
-        path: '/projects/:id',
+        path: '/timer',
         element: <Tasks />
       },
       {
@@ -43,18 +36,16 @@ const router = createBrowserRouter([
 function App() {
 
   return (
-    <div className="App  ">
-      < SelectedProjectProvider>
-        <SelectedTaskProvider>
-          <TimerProvider>
-            <TaskProvider>
-              <ProjectProvider>
-                <RouterProvider router={router} />
-              </ProjectProvider >
-            </TaskProvider>
-          </TimerProvider>
-        </SelectedTaskProvider>
-      </SelectedProjectProvider>
+    <div className="flex text-slate-50 text-center flex-col h-screen bg-slate-800">
+      <SelectedTaskProvider>
+        <TimerProvider>
+          <TaskProvider>
+            <ProjectProvider>
+              <RouterProvider router={router} />
+            </ProjectProvider >
+          </TaskProvider>
+        </TimerProvider>
+      </SelectedTaskProvider>
     </div>
   )
 }
