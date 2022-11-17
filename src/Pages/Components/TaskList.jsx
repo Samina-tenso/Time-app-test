@@ -31,9 +31,9 @@ export function TaskList() {
                 projectId: projectId
             }
         })
-        dispatchTimer({
-            type: 'RESET_TIME'
-        })
+        // dispatchTimer({
+        //     type: 'RESET_TIME'
+        // })
     }
     const handleDelete = (id) => {
         deleteTask(id)

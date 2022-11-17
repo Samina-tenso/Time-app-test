@@ -7,7 +7,7 @@ export const useRemoveTime = () => {
     const { stateTask, dispatchTask } = useContext(TaskContext)
     async function removeTime(id) {
         try {
-            const response = await axios.patch(`http://localhost:3001/tasks/${id}`, {
+            const response = await axios.patch(`http://localhost:3000/tasks/${id}`, {
                 time: ''
             })
             console.log("removed")
