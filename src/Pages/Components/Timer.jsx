@@ -12,13 +12,19 @@ export function Timer() {
     const timerRef = useRef(0)
     const { addTime } = useAddTime()
 
+
+
+
+
+
+
     useEffect(() => {
-        console.log("rerendered")
         if (!stateTimer.isRunning) {
             return
         }
-        console.log(stateTimer.time)
-        timerRef.current = setInterval(() => dispatchTimer({ type: 'TICK' }), 1000)
+        timerRef.current = setInterval(() => dispatchTimer({
+            type: 'TICK',
+        }), 1000)
         return () => {
             clearInterval(timerRef.current)
             timerRef.current = 0
@@ -49,7 +55,7 @@ export function Timer() {
             {stateSelectedTask.selectedTask.title ?
                 (
                     <div className="space-y-4" >
-                        <h1 className="text-2xl">{stateTimer.time}</h1>
+                        {<h1 className="text-2xl">{stateTimer.hours}:{stateTimer.minutes}:{stateTimer.seconds}</h1>}
                         <h2 className="text-xl">Project: {stateSelectedTask.selectedTask ? (stateSelectedTask.selectedTask.projectTitle) : null}</h2>
                         <h2 className="text-xl font-bold">Task: {stateSelectedTask.selectedTask ? (stateSelectedTask.selectedTask.title) : null}</h2>
                         <button className=" rounded-full p-1 hover:bg-slate-600 active:bg-slate-900" onClick={handleSave}> <BookmarkIcon className="w-8 m-2"></BookmarkIcon></button>

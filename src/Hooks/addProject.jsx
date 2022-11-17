@@ -11,7 +11,7 @@ export const useAddProject = () => {
     async function addProject(title) {
         setError(null)
         try {
-            const response = await axios.post("http://localhost:3001/projects", {
+            const response = await axios.post("http://localhost:3000/projects", {
                 id: uuidv4(),
                 title: title
             })
