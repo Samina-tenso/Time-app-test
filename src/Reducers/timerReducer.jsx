@@ -14,7 +14,7 @@ export const timerReducer = (stateTimer, action) => {
         case 'STOP':
             return { ...stateTimer, isRunning: false }
         case 'RESET_TIME':
-            return { isRunning: false, time: 0 }
+            return { isRunning: false, seconds: 0, minutes: 0, hours: 0 }
         case 'TICK':
             if (stateTimer.seconds === 2) {
                 return { ...stateTimer, seconds: 0, minutes: stateTimer.minutes + 1 }

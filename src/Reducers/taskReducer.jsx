@@ -29,6 +29,7 @@ export const taskReducer = (stateTask, action) => {
             }
             return updateState
         case "ADD_TIME":
+            console.log(action.payload)
             let addedTimeState =
             {
                 ...stateTask, task: [...stateTask.task.filter((task) => task.id !== action.payload.id), action.payload]
