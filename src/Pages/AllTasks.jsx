@@ -6,8 +6,8 @@ export function AllTasks() {
     const { stateTask } = useContext(TaskContext)
     const { getAllTasks } = useGetAllTasks()
     useEffect(() => {
+        console.log("j")
         getAllTasks()
-
     }, [])
     console.log(stateTask)
     return (
@@ -18,6 +18,7 @@ export function AllTasks() {
                 <li className='flex-1'> <p> Time</p></li>
             </ul>
             < ul >
+
                 {
                     stateTask.task.map(task => {
                         return <div className='p-6 bg-slate-900' >

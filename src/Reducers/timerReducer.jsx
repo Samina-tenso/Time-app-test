@@ -3,8 +3,6 @@ export const initialState = {
     seconds: 0,
     minutes: 0,
     hours: 0
-
-
 }
 
 export const timerReducer = (stateTimer, action) => {
