@@ -9,7 +9,7 @@ export function AllTasks() {
         getAllTasks()
 
     }, [])
-
+    console.log(stateTask)
     return (
         <div className='bg-slate-800 pb-20' >
             <ul className='flex mb-4'>
@@ -21,10 +21,13 @@ export function AllTasks() {
                 {
                     stateTask.task.map(task => {
                         return <div className='p-6 bg-slate-900' >
-                            <li className='flex' key={task.uuid}   >
+                            <li className='flex' key={task.id}   >
                                 <h1 className='flex-1'>{task.title}</h1>
                                 <h2 className='flex-1'>{task.projectTitle}</h2>
-                                <p className='flex-1' >{task.time}</p>
+                                <p className='flex-1' >{task.time.hours}</p>
+                                <p className='flex-1' >{task.time.minutest}</p>
+                                <p className='flex-1' >{task.time.seconds}</p>
+
                             </li>
                         </div>
                     })
