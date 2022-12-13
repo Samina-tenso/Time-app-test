@@ -26,7 +26,11 @@ export const useAddTime = () => {
                     time: response.data.time,
                 }
             })
+<<<<<<< HEAD
             console.log(response.data.time)
+=======
+
+>>>>>>> d248a914836bc684b2784a3b845330ba8dfd540e
             return
         } catch (error) {
             console.log(error.message)
