@@ -8,8 +8,9 @@ export const ProjectProvider = ({ children }) => {
     console.log('projectcontext state:', state)
     useEffect(() => {
         async function getProjects() {
+            console.log("hohoho")
             try {
-                let response = await axios.get("http://localhost:3001/projects")
+                let response = await axios.get("http://localhost:3000/projects")
                 if (response.status == 200) {
                     dispatch({
                         type: "FETCH_PROJECTS", payload: response.data

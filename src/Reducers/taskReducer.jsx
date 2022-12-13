@@ -3,9 +3,12 @@ export const initialState = {
         id: '',
         title: '',
         projectId: null,
-        projectTitle: null
-
-
+        projectTitle: null,
+        time: {
+            seconds: '',
+            minutes: '',
+            hours: '',
+        }
     }
     ]
 }
@@ -17,11 +20,10 @@ export const taskReducer = (stateTask, action) => {
                     ...stateTask.task, action.payload
                 ]
             }
-        case "DELETED_TASK":
-            let filteredState = {
-                ...stateTask, task: [...stateTask.task].filter((task) => task.id !== action.payload.id)
-            }
-            return filteredState
+        case "DELETE_TASK":
+            console.log(action.payload)
+            return { ...stateTask, task: [...stateTask.task].filter((task) => task.id !== action.payload.id) }
+
         case "FETCH_TASKS":
             let updateState =
             {
@@ -29,6 +31,7 @@ export const taskReducer = (stateTask, action) => {
             }
             return updateState
         case "ADD_TIME":
+            console.log(action.payload)
             let addedTimeState =
             {
                 ...stateTask, task: [...stateTask.task.filter((task) => task.id !== action.payload.id), action.payload]

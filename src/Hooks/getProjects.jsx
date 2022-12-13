@@ -6,7 +6,7 @@ export const useGetProjects = () => {
     const { state, dispatch } = useContext(ProjectContext)
     async function getProjects() {
         try {
-            let response = await axios.get("http://localhost:3001/projects")
+            let response = await axios.get("http://localhost:3000/projects")
             console.log(response.data)
             if (response.status == 200) {
                 dispatch({

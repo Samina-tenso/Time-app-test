@@ -8,12 +8,12 @@ export const useAddTime = () => {
     const { stateTask, dispatchTask } = useContext(TaskContext)
 
     // post med dispatch
-    async function addTime(count, selectedId) {
-        console.log(count, selectedId)
+    async function addTime(time, selectedId) {
+        console.log(time, selectedId)
         setError(null)
         try {
-            const response = await axios.patch(`http://localhost:3001/tasks/${selectedId}`, {
-                time: count
+            const response = await axios.patch(`http://localhost:3000/tasks/${selectedId}`, {
+                time: time
             })
             console.log("added")
             dispatchTask({
@@ -24,10 +24,9 @@ export const useAddTime = () => {
                     projectId: response.data.projectId,
                     projectTitle: response.data.projectTitle,
                     time: response.data.time,
-
                 }
             })
-            console.log(response.data)
+            console.log(response.data.time)
             return
         } catch (error) {
             console.log(error.message)

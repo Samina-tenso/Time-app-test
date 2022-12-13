@@ -31,9 +31,10 @@ export function TaskList() {
                 projectId: projectId
             }
         })
-        dispatchTimer({
-            type: 'RESET_TIME'
-        })
+        // dispatchTimer({
+        //     type: 'RESET_TIME'
+        // })
+        console.log(stateTask)
     }
     const handleDelete = (id) => {
         deleteTask(id)
@@ -55,7 +56,7 @@ export function TaskList() {
                     stateTask.task.map(task => {
                         return <div className="flex py-6 align-center bg-slate-900" >
                             <span className=" basis-3/5" onClick={() => handleSelected(task.id, task.title, task.projectTitle, task.projectId)} >
-                                <li key={task.id} className="text-xl pt-3"> <span className="px-2">{task.projectTitle}</span><span className="px-2 font-bold"> {task.title} </span> <span className="px-2">{task.time}</span></li>
+                                <li key={task.id} className="text-xl pt-3"> <span className="px-2">{task.projectTitle}</span>{task.time ? <span>{task.time.hours + ":"}{task.time.minutes + ":"}{task.time.seconds}</span> : null}<span className="px-2 font-bold"> {task.title} </span> <span className="px-2"></span></li>
                             </span>
                             <button className="basis-1/5 rounded-full pt-3 hover:bg-slate-600 active:text-slate-900" onClick={() => handleRemoveTime(task.id)}><ClockIcon className="absolute  inline w-6 " /><MinusCircleIcon className=" relative m-3 inline w-4" /></button>
                             <button className="basis-1/5 rounded-full pt-3 hover:bg-slate-600 active:text-slate-900 mr-6" onClick={() => handleDelete(task.id)}><TrashIcon className="inline w-6 mb-3 " /></button>
