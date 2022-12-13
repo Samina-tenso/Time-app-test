@@ -5,7 +5,6 @@ import axios from "axios";
 export const ProjectContext = createContext()
 export const ProjectProvider = ({ children }) => {
     const [state, dispatch] = useReducer(projectReducer, initialState)
-    console.log('projectcontext state:', state)
     useEffect(() => {
         async function getProjects() {
             try {
