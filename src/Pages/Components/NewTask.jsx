@@ -4,6 +4,7 @@ import { useState, useContext } from 'react';
 import { ProjectContext } from '../../Context/ProjectContext';
 import { useAddTask } from '../../Hooks/addTask';
 import { ChevronDownIcon } from '@heroicons/react/24/solid';
+import { ReusableButton } from './ResuableButton'
 
 export function NewTask() {
     const { state } = useContext(ProjectContext)
@@ -68,7 +69,7 @@ export function NewTask() {
                     </div>
                 ) : null
             }
-            <button type="submit" className="bg-slate-900 p-6  hover:bg-slate-600 active:text-slate-900" onClick={handleSubmit}>Add Task</button>
+            <ReusableButton type="submit" className="" onClick={handleSubmit}>Add Task</ReusableButton>
         </Form >
     )
 }
