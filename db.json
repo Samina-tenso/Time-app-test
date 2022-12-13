@@ -3,6 +3,10 @@
     {
       "id": "05dbc9fa-f650-42e3-99ed-fb301b435c24",
       "title": "er"
+    },
+    {
+      "id": "49dcca01-7a0d-4be6-967d-7673a26912d1",
+      "title": "test1"
     }
   ],
   "tasks": [
@@ -17,13 +21,6 @@
         "minutes": 1,
         "hours": 0
       }
-    },
-    {
-      "id": "3b3ba0af-9701-48af-87b6-3204aaddfe72",
-      "title": "",
-      "projectId": "",
-      "projectTitle": "",
-      "day": "2022-11-18"
     },
     {
       "id": "f8b397ab-6b39-4fb8-90f3-bdc61261467c",
