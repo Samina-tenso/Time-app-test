@@ -25,9 +25,9 @@ export function AllTasks() {
                             <li className='flex' key={task.id}   >
                                 <h1 className='flex-1'>{task.title}</h1>
                                 <h2 className='flex-1'>{task.projectTitle}</h2>
-                                <p className='flex-1' >{task.time.hours}</p>
-                                <p className='flex-1' >{task.time.minutest}</p>
-                                <p className='flex-1' >{task.time.seconds}</p>
+                                <span className='flex-1'><p>{task.time.hours}:{task.time.minutes}:{task.time.seconds}</p></span>
+
+
 
                             </li>
                         </div>
