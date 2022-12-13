@@ -3,9 +3,12 @@ export const initialState = {
         id: '',
         title: '',
         projectId: null,
-        projectTitle: null
-
-
+        projectTitle: null,
+        time: {
+            seconds: '',
+            minutes: '',
+            hours: '',
+        }
     }
     ]
 }
