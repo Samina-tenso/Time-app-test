@@ -4,9 +4,9 @@ import { useState, useContext } from 'react';
 import { ProjectContext } from '../../Context/ProjectContext';
 import { useAddTask } from '../../Hooks/addTask';
 import { ChevronDownIcon } from '@heroicons/react/24/solid';
-import { ReusableButton } from './ResuableButton'
+import { ReusableButton } from './ReusableButton'
 
-export function NewTask() {
+export function NewTask({ onSubmit = () => { } }) {
     const { state } = useContext(ProjectContext)
     const [isOpen, setIsOpen] = useState(false)
     const { addTask } = useAddTask()
@@ -24,8 +24,10 @@ export function NewTask() {
         setTask({ ...task })
     }
     const handleSubmit = async (e) => {
+        onSubmit()
         e.preventDefault()
         await addTask(task)
+
         task.title = ('')
         task.projectTitle = ('')
     }
@@ -47,9 +49,9 @@ export function NewTask() {
     }
 
     return (
-        <Form className="form form flex flex-col m-10 space-y-4">
+        <form data-testid="task-form" onSubmit={handleSubmit} className="form form flex flex-col m-10 space-y-4">
             <h2> Name your new task </h2>
-            <input type="text" placeholder='task name' className="rounded-full text-slate-900 p-2" value={task.title} onChange={(e) => handleChange(e)} required />
+            <input type="text" name="task" placeholder='task name' data-testid="task-name" className="rounded-full text-slate-900 p-2" value={task.title} onChange={(e) => handleChange(e)} required />
             <div className="flex justify-around ">
                 {
                     task.projectId ? task.projectTitle : <label >Choose project </label>
@@ -69,7 +71,7 @@ export function NewTask() {
                     </div>
                 ) : null
             }
-            <ReusableButton type="submit" className="" onClick={handleSubmit}>Add Task</ReusableButton>
-        </Form >
+            <ReusableButton type="submit">Add Task</ReusableButton>
+        </form >
     )
 }

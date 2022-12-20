@@ -26,9 +26,6 @@ export function AllTasks() {
                                 <h1 className='flex-1'>{task.title}</h1>
                                 <h2 className='flex-1'>{task.projectTitle}</h2>
                                 <span className='flex-1'><p>{task.time.hours}:{task.time.minutes}:{task.time.seconds}</p></span>
-
-
-
                             </li>
                         </div>
                     })

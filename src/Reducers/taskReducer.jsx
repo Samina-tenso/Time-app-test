@@ -1,15 +1,5 @@
 export const initialState = {
-    task: [{
-        id: '',
-        title: '',
-        projectId: null,
-        projectTitle: null,
-        time: {
-            seconds: '',
-            minutes: '',
-            hours: '',
-        }
-    }
+    task: [
     ]
 }
 export const taskReducer = (stateTask, action) => {

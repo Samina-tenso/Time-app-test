@@ -61,10 +61,10 @@ export function Timer() {
                     <div className="space-y-4" >
                         {<h1 className="text-2xl">{stateTimer.hours}:{stateTimer.minutes}:{stateTimer.seconds}</h1>}
                         <h2 className="text-xl">Project: {stateSelectedTask.selectedTask ? (stateSelectedTask.selectedTask.projectTitle) : null}</h2>
-                        <h2 className="text-xl font-bold">Task: {stateSelectedTask.selectedTask ? (stateSelectedTask.selectedTask.title) : null}</h2>
+                        <h2 data-testid="selected-timerItem" className="text-xl   font-bold">Task: {stateSelectedTask.selectedTask ? (stateSelectedTask.selectedTask.title) : null}</h2>
                         <button className=" rounded-full p-1 hover:bg-slate-600 active:bg-slate-900" onClick={(e) => handleSave(e, stateTimer.seconds, stateTimer.minutes, stateTimer.hours)}> <BookmarkIcon className="w-8 m-2"></BookmarkIcon></button>
-                        <button className=" rounded-full p-1 hover:bg-slate-600 active:bg-slate-900" onClick={() => dispatchTimer({ type: 'START' })}> <PlayIcon className="w-8 m-2 "></PlayIcon></button>
-                        <button className=" rounded-full p-1 hover:bg-slate-600 active:bg-slate-900" onClick={() => dispatchTimer({ type: 'STOP' })}> <StopIcon className="w-8 m-2"></StopIcon></button>
+                        <button data-testid="play-button" className=" rounded-full p-1 hover:bg-slate-600 active:bg-slate-900" onClick={() => dispatchTimer({ type: 'START' })}> <PlayIcon className="w-8 m-2 "></PlayIcon></button>
+                        <button data-testid="stop-button" className=" rounded-full p-1 hover:bg-slate-600 active:bg-slate-900" onClick={() => dispatchTimer({ type: 'STOP' })}> <StopIcon className="w-8 m-2"></StopIcon></button>
                     </div>)
 
                 : (<h1>Choose Task</h1>)

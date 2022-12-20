@@ -25,8 +25,8 @@ export function ProjectList() {
             < ul >
                 {
                     state.projects.map(project => {
-                        return <div className="flex p-6 align-center w-screen bg-slate-900">
-                            <li key={project.id} className="flex-1 self-center text-xl"> {project.title}</li>
+                        return <div key={project.id} className="flex p-6 align-center w-screen bg-slate-900">
+                            <li className="flex-1 self-center text-xl"> {project.title}</li>
                             <button onClick={() => handleDelete(project.id)} className="flex-1 rounded-full p-3 hover:bg-slate-600 active:text-slate-900"> <TrashIcon className="inline w-6" /></button></div>
                     })
                 }
