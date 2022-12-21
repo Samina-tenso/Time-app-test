@@ -5,8 +5,6 @@ import { ProjectProvider } from "../../Context/ProjectContext"
 import { SelectedTaskProvider } from "../../Context/SelectedTaskContext"
 import { TaskProvider } from "../../Context/TaskContext"
 import { TimerContext, TimerProvider } from "../../Context/TimerContext"
-import { TaskList } from "../../Pages/Components/TaskList"
-import { Timer } from "../../Pages/Components/Timer"
 import { Tasks } from '../../Pages/Tasks'
 
 

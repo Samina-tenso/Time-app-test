@@ -22,7 +22,7 @@ export function ProjectList() {
     }
     return (
         <div className="bg-slate-800 pb-20" >
-            < ul >
+            < ul data-testid="project-list" >
                 {
                     state.projects.map(project => {
                         return <div key={project.id} className="flex p-6 align-center w-screen bg-slate-900">

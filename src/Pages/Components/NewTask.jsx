@@ -36,7 +36,8 @@ export function NewTask({ onSubmit = () => { } }) {
         task.projectTitle = title
         setTask({ ...task })
     }
-    const handleDropDown = () => {
+    const handleDropDown = (e) => {
+        e.preventDefault()
         console.log(isOpen)
         if (!isOpen) {
             setIsOpen(true)
@@ -56,19 +57,19 @@ export function NewTask({ onSubmit = () => { } }) {
                 {
                     task.projectId ? task.projectTitle : <label >Choose project </label>
                 }
-                <button className=" w-10   h-8 bg-slate-900 hover:bg-slate-600" onClick={handleDropDown} > <ChevronDownIcon className=" inline w-4" /> </button>
+                <button className=" w-10   h-8 bg-slate-900 hover:bg-slate-600" onClick={(e) => handleDropDown(e)} > <ChevronDownIcon className=" inline w-4" /> </button>
             </div>
             {
                 isOpen ? (
-                    <div className=" bg-slate-50 inline hover:m-0 place-items-center text-slate-900">
+                    <ul data-testid="dropdown" className=" bg-slate-50 inline hover:m-0 place-items-center text-slate-900">
                         {
                             state.projects.map(project => {
-                                return <div className=" block p-1 border-none hover:bg-slate-600 hover:text-slate-50" value={project.title} onClick={(e) => { chooseProject(project.id, project.title); handleDropDown(e) }}>
+                                return <li data-testid="dropdown-item" className=" block p-1 border-none hover:bg-slate-600 hover:text-slate-50" value={project.title} onClick={(e) => { chooseProject(project.id, project.title); handleDropDown(e) }}>
                                     {project.title}
-                                </div>
+                                </li>
                             })
                         }
-                    </div>
+                    </ul>
                 ) : null
             }
             <ReusableButton type="submit">Add Task</ReusableButton>

@@ -5,22 +5,15 @@ import { vi, describe } from 'vitest'
 import userEvent from '@testing-library/user-event'
 import { TaskProvider } from '../../Context/TaskContext'
 import { ProjectProvider } from '../../Context/ProjectContext'
-import { addTask } from '../../Hooks/addTask'
-import { useAddTask } from '../../Hooks/addTask'
-import { MockedRequest } from 'msw'
 import { TaskList } from '../../Pages/Components/TaskList'
 import { TimerProvider } from '../../Context/TimerContext'
 import { SelectedTaskProvider } from '../../Context/SelectedTaskContext'
 
-// const handleSubmit = vi.fn((title) => {
-//     return Promise.resolve({ title })
-// })
 describe('NewTask', () => {
     test("Should call handeSubmit when clicked", async () => {
         const handleSubmit = vi.fn(() => {
             return Promise.resolve()
         })
-        //const addTask = vi.spyOn()
         render(
             <TaskProvider>
                 <ProjectProvider>
@@ -45,6 +38,5 @@ describe('NewTask', () => {
         }
         )
         screen.debug()
-        //         debugger
     })
 })

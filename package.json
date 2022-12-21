@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "test": "vitest",
+    "test_units": "vitest src/__tests__/unit",
+    "test_integrations": "vitest src/__tests__/integrations",
     "build": "vite build",
     "preview": "vite preview"
   },
@@ -22,6 +24,7 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.29.0",
     "@testing-library/dom": "^8.19.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

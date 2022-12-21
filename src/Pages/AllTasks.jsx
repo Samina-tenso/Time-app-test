@@ -6,7 +6,7 @@ export function AllTasks() {
     const { stateTask } = useContext(TaskContext)
     const { getAllTasks } = useGetAllTasks()
     useEffect(() => {
-        console.log("j")
+        console.log(stateTask)
         getAllTasks()
     }, [])
     console.log(stateTask)
@@ -19,17 +19,21 @@ export function AllTasks() {
             </ul>
             < ul >
 
-                {
+                {stateTask ?
                     stateTask.task.map(task => {
                         return <div className='p-6 bg-slate-900' >
                             <li className='flex' key={task.id}   >
                                 <h1 className='flex-1'>{task.title}</h1>
                                 <h2 className='flex-1'>{task.projectTitle}</h2>
-                                <span className='flex-1'><p>{task.time.hours}:{task.time.minutes}:{task.time.seconds}</p></span>
+                                {task.time && (
+                                    < span className='flex-1'><p>{task.time.hours}:{task.time.minutes}:{task.time.seconds}</p></span>
+                                )
+                                }
+
                             </li>
                         </div>
                     })
-                }
+                    : null}
             </ul >
         </div >
     )

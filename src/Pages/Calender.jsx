@@ -9,9 +9,7 @@ export function Calender() {
     const { getByDate } = useGetByDate()
     const { stateTask } = useContext(TaskContext)
     const [selected, setSelected] = React.useState(formatISO(new Date(), { representation: 'date' }));
-
     useEffect(() => {
-        console.log("hu")
         getByDate(currentDate)
         console.log(selected)
     }, [selected])
@@ -32,8 +30,8 @@ export function Calender() {
                 </span>
             </div>
             <div>
-                <span className=''>
-                    <p > You picked {format(new Date(selected), 'PP')}</p>
+                <span >
+                    <p data-testid="date" > You picked {format(new Date(selected), 'PP')}</p>
                 </span>
                 <span>
                     <ul>
@@ -45,7 +43,6 @@ export function Calender() {
                             })
                         }
                     </ul>
-
                 </span>
             </div >
         </>
